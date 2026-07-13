@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Cuadro de mando institucional</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div>
+          <div class="mast__eye">Dirección General · JENATID</div>
+          <h1>Cuadro de mando institucional</h1>
+          <p>Visión unificada de Finanzas, Logística y Personas · martes 30 de junio de 2026</p>
+        </div>
+        <div class="mast__act">
+          <a class="btn btn--ghost" href="integraciones.html">Estado de integraciones</a>
+          <button class="btn btn--pri" data-open="m-report">Generar reporte</button>
+        </div>
+      </div>
+
+      <div class="alert alert--danger" style="margin-bottom:var(--s5)">
+        <span>⚠</span>
+        <div><b>Incidente de ciberseguridad en curso</b> — intento de acceso no autorizado al módulo de Remuneraciones (ANCI-2026-0187). Alerta inicial al CSIRT enviada dentro del plazo de 3 h. <a href="incidentes.html">Ver gestión del incidente →</a></div>
+      </div>
+
+      <!-- Stat tiles cruzados -->
+      <div class="grid g4" style="margin-bottom:var(--s5)" data-tour="stats">
+        <a class="stat" href="presupuesto.html">
+          <div class="stat__l">Ejecución presupuestaria 2026</div>
+          <div class="stat__v">58,3<small>%</small></div>
+          <div class="stat__d up">▲ 4,1 pts vs. mes anterior</div>
+          <div style="margin-top:var(--s3)"><svg width="100%" height="30" viewBox="0 0 120 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--navy-500)" stroke-width="2" points="0,25 20,23 40,20 60,18 80,14 100,10 120,7"/></svg></div>
+        </a>
+        <a class="stat gold" href="funcionarios.html">
+          <div class="stat__l">Dotación activa</div>
+          <div class="stat__v">13.842</div>
+          <div class="stat__d up">▲ 250 agentes (plan 2026)</div>
+          <div class="stat__x">11.960 oficiales · 1.882 agentes y civiles</div>
+        </a>
+        <a class="stat warn" href="armamento.html">
+          <div class="stat__l">Armamento conciliado</div>
+          <div class="stat__v">96,4<small>%</small></div>
+          <div class="stat__d down">▼ 312 armas con custodia pendiente</div>
+          <div style="margin-top:var(--s3)"><div class="bar"><div class="bar__f warn" style="width:96.4%"></div></div></div>
+        </a>
+        <a class="stat danger" href="incidentes.html">
+          <div class="stat__l">Incidentes ANCI abiertos</div>
+          <div class="stat__v" style="color:var(--danger-600)">2</div>
+          <div class="stat__d flat">1 crítico · 1 medio · plazo 72 h vigente</div>
+          <div class="stat__x">Últimos 90 días: 7 cerrados</div>
+        </a>
+      </div>
+
+      <div class="grid g3" style="align-items:start">
+
+        <!-- Trazabilidad (héroe B) -->
+        <div class="card sp2" data-tour="traza">
+          <div class="card__h">
+            <h3>Trazabilidad de activos críticos por funcionario</h3>
+            <span class="sub">custodia vigente</span>
+            <div class="r"><a class="btn btn--sm btn--ghost" href="armamento.html">Abrir módulo</a></div>
+          </div>
+          <div class="tw">
+            <table class="tbl">
+              <thead><tr><th>Funcionario</th><th>Unidad</th><th>Activo asignado</th><th>Serie</th><th>Estado custodia</th></tr></thead>
+              <tbody>
+                <tr class="lk" data-href="funcionario-detalle.html">
+                  <td><div class="person"><div class="person__a">MR</div><div class="person__m"><strong>María Rojas Peña</strong><span>Subcomisario</span></div></div></td>
+                  <td>BICRIM Santiago</td><td>Pistola Glock 17 Gen5</td><td><span class="serie">GL-17-88421</span></td>
+                  <td><span class="chip chip--ok"><span class="dot"></span>Al día</span></td>
+                </tr>
+                <tr class="lk" data-href="funcionario-detalle.html">
+                  <td><div class="person"><div class="person__a">JT</div><div class="person__m"><strong>Jorge Tapia Núñez</strong><span>Inspector</span></div></div></td>
+                  <td>Jef. Nac. Antinarcóticos</td><td>Chaleco balístico NIJ IIIA</td><td><span class="serie">EPP-CB-2291</span></td>
+                  <td><span class="chip chip--warn"><span class="dot"></span>Vence en 38 días</span></td>
+                </tr>
+                <tr class="lk" data-href="funcionario-detalle.html">
+                  <td><div class="person"><div class="person__a">CF</div><div class="person__m"><strong>Camila Fuentes Díaz</strong><span>Detective</span></div></div></td>
+                  <td>BICRIM Valparaíso</td><td>Pistola Glock 19 Gen5</td><td><span class="serie">GL-19-70233</span></td>
+                  <td><span class="chip chip--danger"><span class="dot"></span>Sin devolver</span></td>
+                </tr>
+                <tr class="lk" data-href="funcionario-detalle.html">
+                  <td><div class="person"><div class="person__a">RS</div><div class="person__m"><strong>Rodrigo Silva Mora</strong><span>Subinspector</span></div></div></td>
+                  <td>Lab. de Criminalística</td><td>Radio Motorola APX</td><td><span class="serie">DIS-RD-1043</span></td>
+                  <td><span class="chip chip--ok"><span class="dot"></span>Al día</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Integraciones -->
+        <div class="card" data-tour="integra">
+          <div class="card__h"><h3>Integraciones del Estado</h3><div class="r"><a class="btn btn--sm btn--ghost" href="integraciones.html">Ver todas</a></div></div>
+          <div class="card__b" style="padding-top:var(--s4)">
+            <div class="stack" style="gap:var(--s3)">
+              <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">SIGFE 2.0 · Homologados III</strong><span class="muted mono" style="font-size:11px">ok</span></div>
+              <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Mercado Público</strong><span class="muted mono" style="font-size:11px">ok</span></div>
+              <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">SII · DTE</strong><span class="muted mono" style="font-size:11px">ok</span></div>
+              <div class="row"><span class="chip chip--warn"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">DGMN · Control de armas</strong><span class="muted mono" style="font-size:11px">3 pend.</span></div>
+              <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Contraloría · SIAPER</strong><span class="muted mono" style="font-size:11px">ok</span></div>
+              <div class="row"><span class="chip chip--danger"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">DIPRECA · Previsión</strong><span class="muted mono" style="font-size:11px">error</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejecución por programa -->
+        <div class="card sp2">
+          <div class="card__h"><h3>Ejecución presupuestaria por programa</h3><div class="r"><a class="btn btn--sm btn--ghost" href="presupuesto.html">Detalle</a></div></div>
+          <div class="card__b">
+            <div class="stack" style="gap:var(--s4)">
+              <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">01 · Investigación criminalística</strong><span class="muted mono">M$ 42.180 / 68.500</span></div><div class="bar"><div class="bar__f" style="width:61%"></div></div></div>
+              <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">02 · Control migratorio y fronteras</strong><span class="muted mono">M$ 28.940 / 41.300</span></div><div class="bar"><div class="bar__f" style="width:70%"></div></div></div>
+              <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">03 · Formación y Escuela (ESCIPOL)</strong><span class="muted mono">M$ 9.120 / 22.700</span></div><div class="bar"><div class="bar__f warn" style="width:40%"></div></div></div>
+              <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">04 · Modernización tecnológica</strong><span class="muted mono">M$ 15.600 / 18.000</span></div><div class="bar"><div class="bar__f danger" style="width:87%"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actividad reciente -->
+        <div class="card">
+          <div class="card__h"><h3>Actividad reciente</h3><div class="r"><a class="btn btn--sm btn--ghost" href="auditoria.html">Auditoría</a></div></div>
+          <div class="card__b" style="padding-top:var(--s4)">
+            <ul class="tl">
+              <li><span class="tl__d danger"></span><div class="tl__w">Hoy 09:14</div><div class="tl__t">Suspensión aplicada · retiro automático de arma y credencial</div><div class="tl__o">Insp. L. Vega (9.821) · por V. Moraga</div></li>
+              <li><span class="tl__d ok"></span><div class="tl__w">Hoy 08:47</div><div class="tl__t">Devolución de armamento en pañol BICRIM Santiago</div><div class="tl__o">7 armas · turno noche</div></li>
+              <li><span class="tl__d gold"></span><div class="tl__w">Ayer 17:30</div><div class="tl__t">OC N° 2.204 enviada a Mercado Público</div><div class="tl__o">Abastecimiento · M$ 3.180</div></li>
+              <li><span class="tl__d warn"></span><div class="tl__w">Ayer 15:02</div><div class="tl__t">Acto de personal registrado en SIAPER</div><div class="tl__o">nombramiento · grado Detective</div></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal reporte -->
+<div class="scrim" id="m-report">
+  <div class="modal">
+    <div class="modal__h"><div><h3>Generar reporte institucional</h3><p>Consolidado ejecutivo para la Dirección</p></div><button class="modal__x" data-close>×</button></div>
+    <div class="modal__b">
+      <div class="field"><label>Tipo de reporte</label><select><option>Estado de situación integral (Fin · Log · RR.HH.)</option><option>Ejecución presupuestaria para DIPRES</option><option>Conciliación de armamento y custodia</option><option>Rendición a Contraloría</option></select></div>
+      <div class="field"><label>Período</label><select><option>Junio 2026</option><option>Segundo trimestre 2026</option><option>Año 2026 acumulado</option></select></div>
+      <div class="alert alert--info" style="font-size:12px"><span>ℹ</span><div>El reporte queda registrado en auditoría con su clasificación. Los reportes <b>Reservado/Secreto</b> exigen segundo factor.</div></div>
+    </div>
+    <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--pri" data-close onclick="toast('Reporte en preparación','Se notificará al completarse · quedó en auditoría')">Generar</button></div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='dashboard';window.SIGEP_CRUMBS=['Inicio','Cuadro de mando'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>
