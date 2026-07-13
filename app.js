@@ -4,10 +4,6 @@
 (function () {
   "use strict";
 
-  /* ---------- Logo oficial PDI embebido (data-URI, self-contained) ---------- */
-  var PDI_LOGO = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJgAAAC+CAYAAADJN8YKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABIpJREFUeNrs3YFxIjcABdDlxgXQQXwVhFSQvQriVBC7Al8qCK7AcQW2KzhfBXAVmFQQrgOnAiLFIrdDDMRGwmL93swOYzwDq9VHKy1I2zQAAAAAAAAAAAAAAL01WPePxWIxCg+Xe9iHWdj+6vz9kJ5rBoPBNMcbhLLEcoxe6Rh/SY/zWK5QptmOZTkND78UC8Rg8CHn6x1t+N8wbO0eKqDdcDD/rZhUUdMXVtBoT2XZWr5UpruwfY6PoTwPz3y941csy7O9O4B9jAf0JLWm96GC/gzbx7AND/jMEctzHbZYlvGBl+XgA/ZU4C5T5Xw88OMfg/VbKksrYPVVzmWomEkPWoC4/5PUvxKwyrSpcvpwmrnuW8je9aQcsRP/qSdluUwjeAGrrSXryad/2Ozn8pCAvfDTP+zJh6UVsDo//Sc9Kcu5gKmYkk760Bof9TBgo1gxL7hC/hzztHUHGSXCEE+Td30NWPxKpvu91CTD+61+z3Wctu8zn9pWK+bXTgDi93i7DgZuQ4DH3SdSa9OmFjRX/2n0RMBuwjbt/H/XAcEsHZ/Xtchgy+sfh+1+kcd4w/uMS75+xveIPm15nzbDe0xK5qaaPlhoEeaphctxavvxlcsy7rQyuw5adPIzVsxDOgX0wVWmU6SAZfa5JxWjBas0YPM+VEzhUayA7dgXQ8BAwBAwBAz6ErB4RV+1CFhJOQLmEoGArfVThteYqVoBW3d6PNWCCViJcLXN48SNHFfh/1C1dTjac4jGTzwdfws2ytT3Wpqq2jcYsOZxFnNxuRZNoZ+d/F3dqVYBK+lWtQpYKfNwetSCCVgxZ6pUwEq50bkXsFLqmHpFLwP2z/xNP1EWsBJ+D8H6QbgELLc4UozBclqs3CGtTRE78MuVmeeqTsCecvHMvlU89T3surY8byRgqwuGoA8GAoaAIWAgYAfD9DsBK63N8BoPAsY6OVa7ngkYq6fGYdjirfpyLII3P/TjcbTpQDWZVwpcuXvFbF9fUqd7/yynw31XIlTpWMVJw6dNvgXwvqzp2y37dznqZ9itl9y/qRtsCUPJFYg/7OsHgmkl5fYAG4D3q9+7pql/xWZnhfcbOEW+Db34Uv9IPVbrqqadSd2A0+bb2iFxAHK17UOgBavTtKb5BanfN0nhisFf/irmftstFLVg9YkDn9pmR12nFisOOs7TPt6mLd5teLbuJ1VasPqc1dT3SiPw47BPZ2n0Ok8BO0+humo2XPMTsPrCVdvE4Tj6vlv5u22+XaObNhsWrnGKrOe0+HOl8zrjvnXv/RT3cdj8z9WQtGAVXI5oHq93TSvdv7hfbefmqF+bx/XXurdHnGnB6qy4i9pno8f+YAjXTRpFXqQWbZ76Z3EEGe/z+V7A6gnVIc6Mukgt1nVqcb+mSxbxuY2Tngdbrn2cFtzpm30d5PRJO37FUGWbGZW+wmsLtljjLSPKNgVrZiUjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K+/BRgALmSuUd6qYF8AAAAASUVORK5CYII=';
-  window.PDI_LOGO = PDI_LOGO;
-
   /* ---------- Íconos ---------- */
   const I = {
     grid:'<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>',
@@ -101,7 +97,7 @@
     const nav = document.getElementById('nav');
     if (nav) {
       let h = '<div class="nav__mast">' +
-        '<img class="nav__logo" src="' + PDI_LOGO + '" alt="Policía de Investigaciones de Chile">' +
+        '<img class="nav__logo" src="assets/pdi-logo.png" alt="Policía de Investigaciones de Chile">' +
         '<div class="nav__wm"><strong>SIGEP</strong><span>Sistema de Gestión Institucional</span><em>Policía de Investigaciones de Chile</em></div></div>';
       NAV.forEach(function (g) {
         var slug = (g.h || 'cuadro').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z]/g, '');

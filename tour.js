@@ -65,7 +65,7 @@
     w.id = 'tour-welcome';
     w.innerHTML =
       '<div class="tw-card">'+
-        '<div class="tw-crest"><img src="'+(window.PDI_LOGO||"assets/pdi-logo.png")+'" alt="Policía de Investigaciones de Chile" style="height:82px;width:auto"></div>'+
+        '<div class="tw-crest"><img src="assets/pdi-logo.png" alt="Policía de Investigaciones de Chile" style="height:82px;width:auto"></div>'+
         '<div class="tw-eye">Sistema de Gestión Institucional · PDI</div>'+
         '<h2>No es un ERP más.<br>Es el sistema que <span>entiende cómo opera una policía</span>.</h2>'+
         '<p>Finanzas, logística y personas en una sola verdad — con la trazabilidad de cada arma, cada credencial y cada acceso, y conectado al Estado. Te muestro en 2 minutos por qué existe cada módulo.</p>'+
