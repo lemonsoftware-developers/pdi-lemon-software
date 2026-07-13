@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · ANCI-2026-0187</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <a href="incidentes.html" class="btn btn--ghost btn--sm" style="margin-bottom:var(--s4)">← Volver a incidentes</a>
+
+      <div class="mast">
+        <div><div class="mast__eye">Incidente de ciberseguridad · Ley 21.663 (OIV)</div><h1>ANCI-2026-0187</h1><p>Acceso no autorizado al módulo de Remuneraciones · detección 30-06 06:29</p></div>
+        <div class="mast__act"><span class="chip chip--danger chip--lg"><span class="dot"></span>Crítico</span><span id="inc-estado" class="chip chip--warn chip--lg"><span class="dot"></span>Reporte 72 h pendiente</span></div>
+      </div>
+
+      <div id="inc-banner"></div>
+
+      <div class="grid g3" style="align-items:start">
+        <div class="card sp2">
+          <div class="card__h"><h3>Gestión de plazos ANCI</h3><span class="sub">notificación obligatoria al CSIRT Nacional</span></div>
+          <div class="card__b">
+            <div class="stack" style="gap:var(--s4)">
+
+              <div class="row" style="align-items:flex-start;gap:var(--s3)">
+                <span id="h1-dot" class="chip chip--ok" style="margin-top:2px"><span class="dot"></span></span>
+                <div style="flex:1">
+                  <div class="row between"><strong>1 · Alerta inicial <span class="muted" style="font-weight:400">(≤ 3 h)</span></strong><span id="h1-st" class="chip chip--ok">Enviada</span></div>
+                  <p class="muted" style="font-size:12px;margin-top:4px">30-06 08:41 · 2 h 12 m tras detección · CSIRT Nacional acusó recibo.</p>
+                </div>
+              </div>
+
+              <div class="row" style="align-items:flex-start;gap:var(--s3)">
+                <span id="h2-dot" class="chip chip--warn" style="margin-top:2px"><span class="dot"></span></span>
+                <div style="flex:1">
+                  <div class="row between"><strong>2 · Reporte detallado <span class="muted" style="font-weight:400">(≤ 72 h)</span></strong><span id="h2-st" class="chip chip--warn">41 h restantes</span></div>
+                  <p class="muted" style="font-size:12px;margin:4px 0 8px">Alcance, vectores, sistemas afectados y medidas de contención. Vence 03-07 08:41.</p>
+                  <div id="h2-actions" class="row" style="gap:var(--s2);flex-wrap:wrap">
+                    <button class="btn btn--sm btn--pri" onclick="presentar72()">Presentar reporte detallado</button>
+                    <button class="btn btn--sm btn--ghost" onclick="toast('Evidencia adjunta','Logs y captura de red · trazado en auditoría')">Adjuntar evidencia</button>
+                    <button class="btn btn--sm btn--ghost" onclick="toast('Notificado al CSIRT','Avance enviado al CSIRT Nacional')">Notificar avance al CSIRT</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="align-items:flex-start;gap:var(--s3)">
+                <span id="h3-dot" class="chip chip--n" style="margin-top:2px"><span class="dot"></span></span>
+                <div style="flex:1">
+                  <div class="row between"><strong>3 · Reporte final <span class="muted" style="font-weight:400">(≤ 30 d)</span></strong><span id="h3-st" class="chip chip--n">28 d restantes</span></div>
+                  <p class="muted" style="font-size:12px;margin:4px 0 8px">Causa raíz, impacto y plan de remediación. Requiere el reporte de 72 h presentado.</p>
+                  <button id="h3-btn" class="btn btn--sm btn--pri" disabled onclick="cerrarFinal()">Cerrar reporte final</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <div class="card"><div class="card__h"><h3>Datos del incidente</h3></div><div class="card__b"><dl class="dl">
+            <dt>Folio ANCI</dt><dd class="mono">ANCI-2026-0187</dd>
+            <dt>Severidad</dt><dd><span class="chip chip--danger">Crítico</span></dd>
+            <dt>Sistema</dt><dd>Remuneraciones</dd>
+            <dt>Detección</dt><dd class="mono">30-06 06:29</dd>
+            <dt>Delegado</dt><dd>Comisario J. Salas</dd>
+            <dt>Clasificación</dt><dd><span class="chip chip--sec">Secreto</span></dd>
+          </dl></div></div>
+          <div class="card"><div class="card__h"><h3>Bitácora</h3></div><div class="card__b" style="padding-top:var(--s4)">
+            <ul class="tl" id="inc-tl">
+              <li><span class="tl__d ok"></span><div class="tl__w">30-06 08:41</div><div class="tl__t">Alerta inicial enviada al CSIRT</div><div class="tl__o">delegado J. Salas</div></li>
+              <li><span class="tl__d warn"></span><div class="tl__w">30-06 06:35</div><div class="tl__t">Contención · sesión aislada y credenciales rotadas</div><div class="tl__o">SOC</div></li>
+              <li><span class="tl__d"></span><div class="tl__w">30-06 06:29</div><div class="tl__t">Detección · acceso anómalo a Remuneraciones</div><div class="tl__o">alerta automática</div></li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='incidentes';window.SIGEP_CRUMBS=['Inicio','Incidentes ANCI','ANCI-2026-0187'];window.SIGEP_CLF='secreto';</script>
+<script src="app.js"></script>
+<script>
+function nowh(){var d=new Date();return (''+d.getHours()).padStart(2,'0')+':'+(''+d.getMinutes()).padStart(2,'0');}
+function presentar72(){
+  document.getElementById('h2-dot').className='chip chip--ok';
+  document.getElementById('h2-st').className='chip chip--ok'; document.getElementById('h2-st').textContent='Presentado';
+  document.getElementById('h2-actions').innerHTML='<span class="muted" style="font-size:12px">Reporte de 72 h presentado al CSIRT ✓</span>';
+  document.getElementById('h3-btn').removeAttribute('disabled');
+  var e=document.getElementById('inc-estado'); e.className='chip chip--info chip--lg'; e.innerHTML='<span class="dot"></span>Reporte 72 h presentado';
+  document.getElementById('inc-tl').insertAdjacentHTML('afterbegin','<li><span class="tl__d ok"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">Reporte detallado (72 h) presentado al CSIRT</div><div class="tl__o">delegado J. Salas · trazado en auditoría</div></li>');
+  toast('Reporte de 72 h presentado','Enviado al CSIRT Nacional dentro de plazo');
+}
+function cerrarFinal(){
+  document.getElementById('h3-dot').className='chip chip--ok';
+  document.getElementById('h3-st').className='chip chip--ok'; document.getElementById('h3-st').textContent='Cerrado';
+  document.getElementById('h3-btn').setAttribute('disabled','');
+  var e=document.getElementById('inc-estado'); e.className='chip chip--ok chip--lg'; e.innerHTML='<span class="dot"></span>Cerrado';
+  document.getElementById('inc-tl').insertAdjacentHTML('afterbegin','<li><span class="tl__d ok"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">Reporte final presentado · incidente cerrado</div><div class="tl__o">causa raíz + plan de remediación · CSIRT</div></li>');
+  document.getElementById('inc-banner').innerHTML='<div class="alert alert--ok" style="margin:0 0 var(--s5)"><span>✔</span><div><b>Incidente cerrado en cumplimiento.</b> Los tres reportes ANCI (alerta 3 h, detallado 72 h y final 30 d) se presentaron dentro de plazo al CSIRT Nacional. Trazado en el <a href="auditoria.html">registro de auditoría</a>.</div></div>';
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast('Incidente cerrado','Reporte final presentado · cumplimiento ANCI completo','ok');
+}
+</script>
+</body>
+</html>

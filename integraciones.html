@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Integraciones del Estado</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Interoperabilidad</div><h1>Integraciones del Estado</h1><p>Conectores con el ecosistema estatal · un solo bus de interoperabilidad</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Ver bitácora</button><button class="btn btn--pri">Forzar sincronización</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Conectores activos</div><div class="stat__v">10</div><div class="stat__x">del ecosistema estatal</div></div>
+        <div class="stat gold"><div class="stat__l">Operativos</div><div class="stat__v">7</div><div class="stat__d up">sincronizados</div></div>
+        <div class="stat warn"><div class="stat__l">Con pendientes</div><div class="stat__v">2</div><div class="stat__x">DGMN · Transparencia</div></div>
+        <div class="stat danger"><div class="stat__l">En error</div><div class="stat__v">1</div><div class="stat__x">DIPRECA</div></div>
+      </div>
+
+      <div class="grid g3">
+        <div class="card"><div class="card__b"><div class="row between"><strong>SIGFE 2.0</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">Homologados III · DIPRES</p><p style="font-size:12px;margin-top:var(--s2)">Envío de contabilidad, presupuesto e inversión. Última: hoy 07:00.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>Mercado Público</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">ChileCompra</p><p style="font-size:12px;margin-top:var(--s2)">Órdenes de compra y licitaciones. Última: hoy 09:20.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>SII</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">Impuestos Internos</p><p style="font-size:12px;margin-top:var(--s2)">DTE y honorarios. Última: hoy 09:05.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>DGMN</strong><span class="chip chip--warn"><span class="dot"></span>3 pendientes</span></div><p class="muted" style="font-size:12px;margin-top:6px">Control de armas · Ley 17.798</p><p style="font-size:12px;margin-top:var(--s2)">3 inscripciones/bajas en cola de registro.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>Contraloría · SIAPER</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">Registro Electrónico · Toma de Razón</p><p style="font-size:12px;margin-top:var(--s2)">Actos de personal. Última: ayer 15:02.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>Tesorería General</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">TGR + banco pagador</p><p style="font-size:12px;margin-top:var(--s2)">Egresos y conciliación de nómina.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>DIPRECA</strong><span class="chip chip--danger"><span class="dot"></span>Error</span></div><p class="muted" style="font-size:12px;margin-top:6px">Previsión y salud</p><p style="font-size:12px;margin-top:var(--s2)">Timeout 04:12. Reintento programado.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>Registro Civil · ClaveÚnica</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">Identidad y autenticación</p><p style="font-size:12px;margin-top:var(--s2)">Login federado + MFA.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>Transparencia Activa</strong><span class="chip chip--warn"><span class="dot"></span>Cola</span></div><p class="muted" style="font-size:12px;margin-top:6px">Ley 20.285</p><p style="font-size:12px;margin-top:var(--s2)">Publicación mensual de compras y dotación.</p></div></div>
+        <div class="card"><div class="card__b"><div class="row between"><strong>IMED / MEDIPASS</strong><span class="chip chip--ok"><span class="dot"></span>OK</span></div><p class="muted" style="font-size:12px;margin-top:6px">Licencias médicas electrónicas</p><p style="font-size:12px;margin-top:var(--s2)">Tramitación automática de licencias del personal.</p></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='integraciones';window.SIGEP_CRUMBS=['Inicio','Integraciones del Estado'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

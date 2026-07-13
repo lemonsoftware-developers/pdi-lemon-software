@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Asistencia y bienestar</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Personas</div><h1>Asistencia y bienestar</h1><p>Asistencia y turnos · licencias médicas · bienestar · capacitación · evaluación</p></div>
+      <div class="mast__act"><button class="btn btn--pri">Registrar novedad</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Presentes hoy</div><div class="stat__v">11.204</div><div class="stat__x">de 13.842 · turnos 24/7</div></div>
+        <div class="stat warn"><div class="stat__l">Licencias médicas</div><div class="stat__v">642</div><div class="stat__x">vía IMED/MEDIPASS</div></div>
+        <div class="stat"><div class="stat__l">En capacitación</div><div class="stat__v">318</div></div>
+        <div class="stat"><div class="stat__l">Comisión de servicio</div><div class="stat__v">204</div></div>
+      </div>
+
+      <div data-tabs class="tabs">
+        <button class="tab on" data-tab="asis">Asistencia y turnos</button>
+        <button class="tab" data-tab="lic">Licencias médicas</button>
+        <button class="tab" data-tab="bien">Bienestar</button>
+        <button class="tab" data-tab="cap">Capacitación y evaluación</button>
+      </div>
+
+      <div data-panel="asis"><div class="card"><div class="card__h"><h3>Turnos del día</h3><span class="sub">operación 24/7 por unidad</span></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Unidad</th><th>Turno</th><th class="num">Dotación</th><th class="num">Presentes</th><th>Cobertura</th></tr></thead>
+        <tbody>
+          <tr><td>BICRIM Santiago</td><td>Día 08–20</td><td class="num">420</td><td class="num">398</td><td><span class="chip chip--ok">95%</span></td></tr>
+          <tr><td>BICRIM Santiago</td><td>Noche 20–08</td><td class="num">180</td><td class="num">172</td><td><span class="chip chip--ok">96%</span></td></tr>
+          <tr><td>Control migratorio AMB</td><td>Continuo</td><td class="num">640</td><td class="num">560</td><td><span class="chip chip--warn">87%</span></td></tr>
+        </tbody>
+      </table></div></div></div>
+
+      <div data-panel="lic" style="display:none"><div class="card"><div class="card__h"><h3>Licencias médicas</h3><span class="sub">integración IMED / MEDIPASS</span></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Funcionario</th><th>Folio</th><th>Días</th><th>Origen</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Det. P. Muñoz</td><td class="mono" style="font-size:12px">LM-88421</td><td>7</td><td>IMED</td><td><span class="chip chip--ok">Tramitada</span></td></tr>
+          <tr><td>Subinsp. A. Rivas</td><td class="mono" style="font-size:12px">LM-88510</td><td>3</td><td>MEDIPASS</td><td><span class="chip chip--warn">En curso</span></td></tr>
+        </tbody>
+      </table></div></div></div>
+
+      <div data-panel="bien" style="display:none"><div class="card"><div class="card__b"><div class="grid g3">
+        <div><div class="sect">Prestaciones bienestar</div><dl class="dl"><dt>Médica</dt><dd>4.120 este año</dd><dt>Dental</dt><dd>2.880</dd><dt>Económica</dt><dd>640</dd></dl></div>
+        <div><div class="sect">Caja de bienestar</div><dl class="dl"><dt>Aportes</dt><dd class="mono">M$ 1.240</dd><dt>Beneficios pagados</dt><dd class="mono">M$ 980</dd></dl></div>
+        <div><div class="sect">Afiliados</div><dl class="dl"><dt>Activos</dt><dd>12.980</dd><dt>Cargas</dt><dd>21.440</dd></dl></div>
+      </div></div></div></div>
+
+      <div data-panel="cap" style="display:none"><div class="card"><div class="card__h"><h3>Plan anual de capacitación</h3></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Curso</th><th class="num">Cupos</th><th class="num">Inscritos</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Cadena de custodia de evidencia</td><td class="num">120</td><td class="num">118</td><td><span class="chip chip--ok">En curso</span></td></tr>
+          <tr><td>Ciberseguridad para OIV</td><td class="num">80</td><td class="num">80</td><td><span class="chip chip--warn">Completo</span></td></tr>
+          <tr><td>Uso y control de armamento</td><td class="num">200</td><td class="num">154</td><td><span class="chip chip--ok">Abierto</span></td></tr>
+        </tbody>
+      </table></div></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='rrhh';window.SIGEP_CRUMBS=['Inicio','Asistencia y bienestar'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

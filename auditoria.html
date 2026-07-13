@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Registro de auditoría</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Seguridad y control</div><h1>Registro de auditoría</h1><p>Bitácora inmutable · toda acción del sistema queda trazada con no repudio</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Exportar para Contraloría</button></div>
+      </div>
+
+      <div class="card" style="margin-bottom:var(--s5)"><div class="card__b" style="display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center">
+        <div class="search" style="max-width:300px;margin:0"><input placeholder="Buscar por usuario, entidad o acción…" aria-label="Buscar"></div>
+        <select class="btn btn--ghost" style="height:36px"><option>Todos los módulos</option><option>Personas</option><option>Armamento</option><option>Seguridad</option></select>
+        <select class="btn btn--ghost" style="height:36px"><option>Toda clasificación</option><option>Público</option><option>Reservado</option><option>Secreto</option></select>
+        <span class="muted" style="margin-left:auto;font-size:12px">8 de 48.291 eventos</span>
+      </div></div>
+
+      <div class="card"><div class="tw"><table class="tbl">
+        <thead><tr><th>Marca de tiempo</th><th>Usuario</th><th>Acción</th><th>Entidad</th><th>Clasif.</th><th>Origen</th></tr></thead>
+        <tbody>
+          <tr><td class="mono" style="font-size:12px">30-06 09:14:22</td><td>C. Figueroa</td><td>Suspensión de funcionario + cascada</td><td>Insp. L. Vega (9.821)</td><td><span class="chip chip--sec">Secreto</span></td><td class="mono" style="font-size:11px">10.4.2.19</td></tr>
+          <tr><td class="mono" style="font-size:12px">30-06 09:14:22</td><td>sistema</td><td>Retiro de arma ordenado</td><td>GL-17-88421</td><td><span class="chip chip--res">Reservado</span></td><td class="mono" style="font-size:11px">auto</td></tr>
+          <tr><td class="mono" style="font-size:12px">30-06 09:14:22</td><td>sistema</td><td>Revocación de 4 accesos</td><td>Insp. L. Vega (9.821)</td><td><span class="chip chip--res">Reservado</span></td><td class="mono" style="font-size:11px">auto</td></tr>
+          <tr><td class="mono" style="font-size:12px">30-06 08:47:10</td><td>P. Rivas</td><td>Devolución de armamento en pañol</td><td>GL-17-88109</td><td><span class="chip chip--res">Reservado</span></td><td class="mono" style="font-size:11px">10.7.1.4</td></tr>
+          <tr><td class="mono" style="font-size:12px">30-06 08:41:03</td><td>J. Salas</td><td>Notificación de incidente al CSIRT</td><td>ANCI-2026-0187</td><td><span class="chip chip--sec">Secreto</span></td><td class="mono" style="font-size:11px">10.4.2.2</td></tr>
+          <tr><td class="mono" style="font-size:12px">29-06 17:30:55</td><td>M. Soto</td><td>Envío de OC a Mercado Público</td><td>OC N° 2.204</td><td><span class="chip chip--pub">Público</span></td><td class="mono" style="font-size:11px">10.3.5.8</td></tr>
+          <tr><td class="mono" style="font-size:12px">29-06 15:02:11</td><td>V. Moraga</td><td>Registro de acto de personal en SIAPER</td><td>Nombramiento · Detective</td><td><span class="chip chip--res">Reservado</span></td><td class="mono" style="font-size:11px">10.4.2.9</td></tr>
+          <tr><td class="mono" style="font-size:12px">29-06 11:20:47</td><td>D. Figueroa</td><td>Generación de reporte para DIPRES</td><td>Ejecución presupuestaria</td><td><span class="chip chip--res">Reservado</span></td><td class="mono" style="font-size:11px">10.4.2.19</td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='auditoria';window.SIGEP_CRUMBS=['Inicio','Registro de auditoría'];window.SIGEP_CLF='secreto';</script>
+<script src="app.js"></script>
+</body>
+</html>

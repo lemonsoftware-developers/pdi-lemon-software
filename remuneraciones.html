@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Remuneraciones</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Personas · nómina</div><h1>Remuneraciones</h1><p>Escalafón institucional PDI · previsión DIPRECA · período junio 2026</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Ver retroactivos</button><button class="btn btn--pri" data-open="m-proc">Procesar nómina</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Funcionarios en nómina</div><div class="stat__v">13.842</div></div>
+        <div class="stat gold"><div class="stat__l">Líquido total (mes)</div><div class="stat__v" style="font-size:30px">M$ 32.480</div></div>
+        <div class="stat"><div class="stat__l">Imposiciones DIPRECA</div><div class="stat__v" style="font-size:30px">M$ 5.390</div></div>
+        <div class="stat warn"><div class="stat__l">Retroactivos pendientes</div><div class="stat__v">214</div><div class="stat__x">por ascensos y asignaciones</div></div>
+      </div>
+
+      <div class="card" style="margin-bottom:var(--s5)">
+        <div class="card__h"><h3>Nómina por escalafón y grado</h3><span class="sub">estatuto del personal PDI (DFL 1/1980)</span></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Escalafón / grado</th><th class="num">Dotación</th><th class="num">Sueldo base (M$)</th><th class="num">Asignaciones (M$)</th><th class="num">Líquido (M$)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Oficiales Policiales · Comisario</strong></td><td class="num">412</td><td class="num">1.480</td><td class="num">920</td><td class="num">1.910</td></tr>
+            <tr><td><strong>Oficiales Policiales · Subcomisario</strong></td><td class="num">1.190</td><td class="num">2.140</td><td class="num">1.060</td><td class="num">2.520</td></tr>
+            <tr><td><strong>Oficiales Policiales · Inspector</strong></td><td class="num">3.980</td><td class="num">7.330</td><td class="num">3.720</td><td class="num">8.910</td></tr>
+            <tr><td><strong>Oficiales Policiales · Detective</strong></td><td class="num">4.220</td><td class="num">6.980</td><td class="num">3.010</td><td class="num">8.140</td></tr>
+            <tr><td><strong>Agentes Policiales</strong></td><td class="num">1.882</td><td class="num">2.640</td><td class="num">1.120</td><td class="num">3.180</td></tr>
+            <tr><td><strong>Personal Civil (Planta y Contrata)</strong></td><td class="num">2.158</td><td class="num">3.010</td><td class="num">1.240</td><td class="num">3.820</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Liquidación</h3><span class="sub">cálculo por escalafón y DIPRECA</span>
+          <div class="r"><select id="liq-sel" onchange="verLiquidacion(this.value)" style="height:32px;border:1px solid var(--n-200);border-radius:var(--r2);padding:0 8px;font-size:12px">
+            <option value="0">Insp. L. Vega (9.821) · Inspector</option>
+            <option value="1">Subcom. M. Rojas (7.104) · Subcomisario</option>
+            <option value="2">Ag. P. Soto (12.905) · Agente</option>
+          </select></div>
+        </div>
+        <div class="card__b"><div class="grid g2">
+          <dl class="dl">
+            <dt>Sueldo base grado</dt><dd class="mono" id="l-base">$ 1.842.550</dd>
+            <dt>Asignación institucional</dt><dd class="mono" id="l-inst">$ 720.000</dd>
+            <dt>Asignación de riesgo</dt><dd class="mono" id="l-riesgo">$ 216.200</dd>
+            <dt>Asignación de zona</dt><dd class="mono" id="l-zona">$ 0</dd>
+          </dl>
+          <dl class="dl">
+            <dt>Imposición DIPRECA</dt><dd class="mono" id="l-imp">- $ 285.180</dd>
+            <dt>Salud DIPRECA</dt><dd class="mono" id="l-salud">- $ 103.230</dd>
+            <dt>Impuesto único</dt><dd class="mono" id="l-tax">- $ 0</dd>
+            <dt style="font-weight:700;color:var(--tx-strong)">Líquido</dt><dd class="mono" id="l-liq" style="font-weight:700">$ 2.390.340</dd>
+          </dl>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="m-proc"><div class="modal modal--w"><div class="modal__h"><div><h3>Procesar nómina · junio 2026</h3><p>13.842 funcionarios · escalafón PDI + DIPRECA</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="steps" id="np-steps">
+      <div class="step cur"><span class="step__n">1</span><div class="step__t">Pre-cálculo</div><div class="step__s">haberes y descuentos</div></div>
+      <div class="step"><span class="step__n">2</span><div class="step__t">Cuadratura DIPRECA</div><div class="step__s">imposiciones</div></div>
+      <div class="step"><span class="step__n">3</span><div class="step__t">Archivo banco</div><div class="step__s">pago masivo</div></div>
+      <div class="step"><span class="step__n">4</span><div class="step__t">Contab. SIGFE</div><div class="step__s">devengo</div></div>
+    </div>
+    <div id="np-hint" class="alert alert--info" style="margin-top:var(--s4);font-size:12px"><span>ℹ</span><div>Etapa <b>Pre-cálculo</b>: liquidaciones por grado y asignaciones institucionales. Quedará trazado en auditoría.</div></div>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cerrar</button><button id="np-btn" class="btn btn--pri" onclick="avanzarNomina()">Ejecutar pre-cálculo</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='remuneraciones';window.SIGEP_CRUMBS=['Inicio','Remuneraciones'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+var LIQ=[
+ {base:'$ 1.842.550',inst:'$ 720.000',riesgo:'$ 216.200',zona:'$ 0',imp:'- $ 285.180',salud:'- $ 103.230',tax:'- $ 0',liq:'$ 2.390.340'},
+ {base:'$ 2.140.300',inst:'$ 1.060.000',riesgo:'$ 262.400',zona:'$ 128.400',imp:'- $ 372.100',salud:'- $ 128.900',tax:'- $ 214.600',liq:'$ 2.875.500'},
+ {base:'$ 1.284.900',inst:'$ 512.000',riesgo:'$ 154.100',zona:'$ 0',imp:'- $ 198.400',salud:'- $ 71.900',tax:'- $ 0',liq:'$ 1.680.700'}
+];
+function verLiquidacion(i){var l=LIQ[i];['base','inst','riesgo','zona','imp','salud','tax','liq'].forEach(function(k){document.getElementById('l-'+k).textContent=l[k];});}
+
+var nps=0;
+var npFlow=[
+ {btn:'Cuadrar con DIPRECA', hint:'Etapa <b>Cuadratura DIPRECA</b>: imposiciones y salud del personal (no AFP).', toast:['Pre-cálculo listo','13.842 liquidaciones generadas']},
+ {btn:'Generar archivo de pago', hint:'Etapa <b>Archivo banco pagador</b>: se genera el archivo de pago masivo.', toast:['Cuadratura DIPRECA OK','Imposiciones conciliadas']},
+ {btn:'Contabilizar en SIGFE', hint:'Etapa <b>Contabilización SIGFE</b>: devengo del gasto de personal.', toast:['Archivo de pago generado','Enviado al banco pagador']},
+ {btn:'Nómina procesada', hint:'<b>Nómina procesada.</b> Liquidaciones, pago y devengo listos y trazados.', toast:['Nómina contabilizada en SIGFE','Devengo de personal registrado','ok'], final:true}
+];
+function avanzarNomina(){
+  var steps=document.getElementById('np-steps').children;
+  steps[nps].classList.remove('cur');steps[nps].classList.add('done');steps[nps].querySelector('.step__n').textContent='✓';
+  var f=npFlow[nps]; nps++;
+  var btn=document.getElementById('np-btn');
+  if(!f.final && steps[nps]) steps[nps].classList.add('cur');
+  document.getElementById('np-hint').innerHTML='<span>ℹ</span><div>'+f.hint+'</div>';
+  btn.textContent=f.btn; if(f.toast) toast(f.toast[0],f.toast[1],f.toast[2]);
+  if(f.final) btn.setAttribute('disabled','');
+}
+</script>
+</body>
+</html>

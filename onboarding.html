@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Puesta en marcha y migración</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Plataforma</div><h1>Puesta en marcha y migración</h1><p>Migración por olas · poblamiento de maestros · prueba de concepto · marcha blanca</p></div></div>
+
+      <div class="card" style="margin-bottom:var(--s5)"><div class="card__h"><h3>Plan de implementación · 12 meses</h3></div><div class="card__b">
+        <div class="steps">
+          <div class="step done"><span class="step__n">✓</span><div class="step__t">Levantamiento</div><div class="step__s">procesos AS-IS</div></div>
+          <div class="step done"><span class="step__n">✓</span><div class="step__t">Maestros</div><div class="step__s">poblados</div></div>
+          <div class="step cur"><span class="step__n">3</span><div class="step__t">Migración por olas</div><div class="step__s">ola 2 de 4</div></div>
+          <div class="step"><span class="step__n">4</span><div class="step__t">POC + marcha blanca</div><div class="step__s">—</div></div>
+          <div class="step"><span class="step__n">5</span><div class="step__t">Producción</div><div class="step__s">—</div></div>
+        </div>
+      </div></div>
+
+      <div class="grid g2" style="align-items:start">
+        <div class="card"><div class="card__h"><h3>Migración de sistemas legados</h3></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Legado</th><th>Dominio</th><th>Ola</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Sistema financiero antiguo</td><td>Finanzas</td><td>1</td><td><span class="chip chip--ok">Migrado</span></td></tr>
+            <tr><td>Planilla de remuneraciones</td><td>RR.HH.</td><td>2</td><td><span class="chip chip--warn">En curso</span></td></tr>
+            <tr><td>Inventario de armamento (Excel)</td><td>Logística</td><td>2</td><td><span class="chip chip--warn">En curso</span></td></tr>
+            <tr><td>Activo fijo</td><td>Logística</td><td>3</td><td><span class="chip chip--n">Pendiente</span></td></tr>
+          </tbody>
+        </table></div></div>
+        <div class="card"><div class="card__h"><h3>Calidad de datos migrados</h3></div><div class="card__b"><div class="stack" style="gap:var(--s4)">
+          <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">Registros validados</strong><span class="muted mono">1,84 M / 2,0 M</span></div><div class="bar"><div class="bar__f ok" style="width:92%"></div></div></div>
+          <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">Duplicados resueltos</strong><span class="muted mono">128 / 156</span></div><div class="bar"><div class="bar__f warn" style="width:82%"></div></div></div>
+          <div><div class="row between" style="margin-bottom:6px"><strong style="font-weight:var(--fw-m)">Series de armamento conciliadas</strong><span class="muted mono">8.328 / 8.640</span></div><div class="bar"><div class="bar__f warn" style="width:96%"></div></div></div>
+          <div class="alert alert--info" style="font-size:12px"><span>ℹ</span><div>La migración de armamento cruza el maestro con el registro DGMN antes de validar.</div></div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='onboarding';window.SIGEP_CRUMBS=['Inicio','Puesta en marcha'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

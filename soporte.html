@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Soporte y mesa de ayuda</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Plataforma · continuidad OIV</div><h1>Soporte y mesa de ayuda</h1><p>Atención N1/N2/N3 · mantención correctiva, evolutiva y normativa · SLA</p></div>
+      <div class="mast__act"><button class="btn btn--pri">Nuevo requerimiento</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Cumplimiento SLA</div><div class="stat__v">97,8<small>%</small></div><div class="stat__d up">▲ dentro de meta</div></div>
+        <div class="stat"><div class="stat__l">Casos abiertos</div><div class="stat__v">42</div></div>
+        <div class="stat warn"><div class="stat__l">Próximos a vencer SLA</div><div class="stat__v">5</div></div>
+        <div class="stat danger"><div class="stat__l">Críticos (P1)</div><div class="stat__v">1</div></div>
+      </div>
+
+      <div class="grid g2" style="align-items:start">
+        <div class="card sp2"><div class="card__h"><h3>Casos de soporte</h3></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Folio</th><th>Asunto</th><th>Nivel</th><th>Prioridad</th><th>SLA</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td class="mono" style="font-size:12px">SOP-8841</td><td>Nómina no calcula asignación de zona (Iquique)</td><td>N2</td><td><span class="chip chip--danger">P1</span></td><td><span class="chip chip--warn">2 h restantes</span></td><td><span class="chip chip--info">En curso</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">SOP-8839</td><td>Error de sincronización DIPRECA</td><td>N3</td><td><span class="chip chip--warn">P2</span></td><td><span class="chip chip--ok">en plazo</span></td><td><span class="chip chip--info">Escalado</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">SOP-8834</td><td>Solicitud de nuevo reporte de armamento</td><td>N1</td><td><span class="chip chip--n">P3</span></td><td><span class="chip chip--ok">en plazo</span></td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">SOP-8820</td><td>Capacitación de usuarios · BICRIM Valparaíso</td><td>N1</td><td><span class="chip chip--n">P3</span></td><td><span class="chip chip--ok">en plazo</span></td><td><span class="chip chip--ok">Resuelto</span></td></tr>
+          </tbody>
+        </table></div></div>
+        <div class="card"><div class="card__h"><h3>Mantención del servicio</h3></div><div class="card__b"><div class="stack" style="gap:var(--s3)">
+          <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Correctiva</strong><span class="muted mono" style="font-size:11px">3 este mes</span></div>
+          <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Evolutiva</strong><span class="muted mono" style="font-size:11px">2 en curso</span></div>
+          <div class="row"><span class="chip chip--warn"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Normativa</strong><span class="muted mono" style="font-size:11px">ajuste SIGFE Q3</span></div>
+          <div class="hr"></div>
+          <div class="sect">SLA por prioridad</div>
+          <dl class="dl" style="grid-template-columns:60px 1fr">
+            <dt>P1</dt><dd>respuesta 30 min · resolución 4 h</dd>
+            <dt>P2</dt><dd>respuesta 2 h · resolución 1 día</dd>
+            <dt>P3</dt><dd>respuesta 1 día · resolución 5 días</dd>
+          </dl>
+          <div class="alert alert--info" style="font-size:12px"><span>ℹ</span><div>Continuidad OIV: los incidentes de <b>ciberseguridad</b> se gestionan aparte, con plazos ANCI. <a href="incidentes.html">Ver incidentes ANCI</a></div></div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='soporte';window.SIGEP_CRUMBS=['Inicio','Soporte y mesa de ayuda'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

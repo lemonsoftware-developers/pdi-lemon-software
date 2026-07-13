@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · EPP y equipamiento</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística y activos</div><h1>EPP y equipamiento</h1><p>Elementos de protección personal con vida útil y reposición · asignados por funcionario</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Plan de reposición</button><button class="btn btn--pri">Asignar EPP</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">EPP en uso</div><div class="stat__v">18.204</div></div>
+        <div class="stat warn"><div class="stat__l">Por vencer (90 d)</div><div class="stat__v">642</div><div class="stat__x">requieren reposición</div></div>
+        <div class="stat danger"><div class="stat__l">Vencidos</div><div class="stat__v">87</div><div class="stat__x">fuera de vida útil</div></div>
+        <div class="stat gold"><div class="stat__l">Cobertura chaleco</div><div class="stat__v">99,4<small>%</small></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Elementos de protección personal</h3><span class="sub">chaleco balístico, casco, guantes anticorte, mascarilla</span></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Elemento</th><th>Serie</th><th>Asignado a</th><th>Puesta en uso</th><th>Vida útil</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Chaleco balístico NIJ IIIA</strong></td><td><span class="serie">EPP-CB-2291</span></td><td>Insp. J. Tapia</td><td class="mono" style="font-size:12px">08-05-2020</td><td>5 años</td><td><span class="chip chip--warn"><span class="dot"></span>Vence en 38 días</span></td></tr>
+            <tr><td><strong>Chaleco balístico NIJ IIIA</strong></td><td><span class="serie">EPP-CB-1180</span></td><td>Insp. L. Vega</td><td class="mono" style="font-size:12px">08-05-2025</td><td>5 años</td><td><span class="chip chip--ok"><span class="dot"></span>Vigente</span></td></tr>
+            <tr><td><strong>Casco balístico</strong></td><td><span class="serie">EPP-CS-0455</span></td><td>Subcom. M. Rojas</td><td class="mono" style="font-size:12px">12-11-2019</td><td>6 años</td><td><span class="chip chip--danger"><span class="dot"></span>Vencido</span></td></tr>
+            <tr><td><strong>Chaleco balístico NIJ IV</strong></td><td><span class="serie">EPP-CB-3007</span></td><td>GOPE · pañol</td><td class="mono" style="font-size:12px">01-03-2024</td><td>5 años</td><td><span class="chip chip--ok"><span class="dot"></span>Vigente</span></td></tr>
+            <tr><td><strong>Guantes anticorte</strong></td><td><span class="serie">EPP-GT-8890</span></td><td>Lab. Criminalística</td><td class="mono" style="font-size:12px">20-01-2026</td><td>2 años</td><td><span class="chip chip--ok"><span class="dot"></span>Vigente</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='epp';window.SIGEP_CRUMBS=['Inicio','EPP y equipamiento'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Datos maestros</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Plataforma</div><h1>Datos maestros</h1><p>Fuente única de verdad · gobierno del dato · sincronización con SIAPER y SIGFE</p></div>
+      <div class="mast__act"><button class="btn btn--pri">Nuevo maestro</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Calidad de datos</div><div class="stat__v">97,2<small>%</small></div><div class="stat__d up">▲ 1,4 pts</div></div>
+        <div class="stat"><div class="stat__l">Maestros gobernados</div><div class="stat__v">7</div></div>
+        <div class="stat warn"><div class="stat__l">Duplicados detectados</div><div class="stat__v">128</div></div>
+        <div class="stat danger"><div class="stat__l">Sin dueño de dato</div><div class="stat__v">1</div></div>
+      </div>
+
+      <div class="card"><div class="card__h"><h3>Maestros institucionales</h3><span class="sub">dueño, calidad y sincronización</span></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Maestro</th><th>Dueño del dato</th><th class="num">Registros</th><th>Sincroniza con</th><th>Calidad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Estructura organizacional</strong></td><td>JENATID</td><td class="num">1.240</td><td>—</td><td><span class="chip chip--ok">99%</span></td></tr>
+          <tr><td><strong>Personal / dotación</strong></td><td>RR.HH.</td><td class="num">13.842</td><td>SIAPER</td><td><span class="chip chip--ok">98%</span></td></tr>
+          <tr><td><strong>Plan de cuentas</strong></td><td>Finanzas</td><td class="num">820</td><td>SIGFE</td><td><span class="chip chip--ok">100%</span></td></tr>
+          <tr><td><strong>Proveedores</strong></td><td>Abastecimiento</td><td class="num">4.510</td><td>ChileCompra / SII</td><td><span class="chip chip--warn">94%</span></td></tr>
+          <tr><td><strong>Catálogo de bienes y armamento</strong></td><td>Logística</td><td class="num">6.740</td><td>DGMN</td><td><span class="chip chip--warn">92%</span></td></tr>
+          <tr><td><strong>Centros de costo</strong></td><td>Finanzas</td><td class="num">310</td><td>SIGFE</td><td><span class="chip chip--ok">100%</span></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='maestros';window.SIGEP_CRUMBS=['Inicio','Datos maestros'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

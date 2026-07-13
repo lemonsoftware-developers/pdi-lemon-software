@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Viáticos y honorarios</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Finanzas</div><h1>Viáticos y honorarios</h1><p>Comisiones de servicio, cometidos funcionarios y honorarios a terceros</p></div>
+      <div class="mast__act"><button class="btn btn--ghost">Honorarios</button><button class="btn btn--pri">Solicitar viático</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Viáticos del mes</div><div class="stat__v">312</div></div>
+        <div class="stat warn"><div class="stat__l">Por rendir</div><div class="stat__v">48</div></div>
+        <div class="stat gold"><div class="stat__l">Monto (mes)</div><div class="stat__v" style="font-size:32px">M$ 186</div></div>
+        <div class="stat"><div class="stat__l">Honorarios activos</div><div class="stat__v">74</div></div>
+      </div>
+
+      <div class="card"><div class="card__h"><h3>Solicitudes de viático</h3></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Funcionario</th><th>Destino</th><th>Días</th><th class="num">Monto ($)</th><th>Tipo</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Insp. J. Tapia</td><td>Iquique · comisión</td><td>4</td><td class="num">428.000</td><td>Nacional</td><td><span class="chip chip--warn">Por rendir</span></td></tr>
+          <tr><td>Subcom. M. Rojas</td><td>Buenos Aires · Interpol</td><td>3</td><td class="num">1.240.000</td><td>Extranjero</td><td><span class="chip chip--ok">Aprobado</span></td></tr>
+          <tr><td>Det. C. Fuentes</td><td>Concepción · pericia</td><td>2</td><td class="num">196.000</td><td>Nacional</td><td><span class="chip chip--ok">Rendido</span></td></tr>
+          <tr><td>Subinsp. R. Silva</td><td>Antofagasta · capacitación</td><td>5</td><td class="num">540.000</td><td>Nacional</td><td><span class="chip chip--info">En revisión</span></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='viaticos';window.SIGEP_CRUMBS=['Inicio','Viáticos y honorarios'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

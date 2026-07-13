@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Próximamente</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast">
+        <div>
+          <div class="mast__eye">Módulo</div>
+          <h1 id="modname">Módulo</h1>
+          <p>Este módulo está contemplado en el alcance del sistema y se prototipará en una próxima iteración.</p>
+        </div>
+      </div>
+      <div class="pronto-box">
+        <div style="font-size:40px;line-height:1;margin-bottom:var(--s3)">🛈</div>
+        <h3 style="font-family:var(--font-display);font-weight:600;color:var(--navy-900);font-size:var(--fs-20);margin-bottom:var(--s2)">Próximamente</h3>
+        <p style="max-width:520px;margin:0 auto var(--s4);color:var(--tx-soft)">Forma parte del requerimiento completo (ver <span class="mono">docs/decisions</span>), pero no está incluido en esta iteración del prototipo, centrada en el cuadro de mando, la trazabilidad de activos y el caso borde de suspensión.</p>
+        <a class="btn btn--pri" href="index.html">Volver al cuadro de mando</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>
+  window.SIGEP_CLF='reservado';
+  var s=(new URLSearchParams(location.search)).get('s')||'Módulo';
+  window.SIGEP_CRUMBS=['Inicio',s];
+  document.addEventListener('DOMContentLoaded',function(){document.getElementById('modname').textContent=s;document.title='SIGEP · '+s;});
+</script>
+<script src="app.js"></script>
+</body>
+</html>

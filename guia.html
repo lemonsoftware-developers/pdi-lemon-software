@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Guía y manual del sistema</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+<style>
+  .guia-hero{background:linear-gradient(150deg,var(--navy-900),var(--navy-950));color:#fff;border-radius:var(--r3);padding:var(--s7);margin-bottom:var(--s6);position:relative;overflow:hidden;border:1px solid var(--navy-800)}
+  .guia-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(244,196,0,.18),transparent 70%)}
+  .guia-hero .tw-eye{color:var(--gold-400)}
+  .guia-hero h1{font-family:var(--font-display);font-weight:700;font-size:34px;color:#fff;margin:8px 0;letter-spacing:.01em}
+  .guia-hero p{color:rgba(255,255,255,.82);max-width:640px;line-height:1.6}
+  .mod{scroll-margin-top:90px}
+  .mod__ico{width:44px;height:44px;border-radius:var(--r2);background:var(--navy-050);color:var(--navy-700);display:grid;place-items:center;flex:none;border:1px solid var(--navy-100)}
+  .mod__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s3)}
+  @media(max-width:900px){.mod__grid{grid-template-columns:1fr}}
+  .mod__box{background:var(--n-50);border:var(--hair);border-radius:var(--r2);padding:var(--s4)}
+  .mod__box .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--tx-faint);font-weight:var(--fw-sb)}
+  .mod__box p{font-size:var(--fs-13);margin-top:5px;line-height:1.5}
+  .toc a{display:block;padding:7px 10px;border-radius:var(--r1);font-size:var(--fs-13);color:var(--tx);font-weight:var(--fw-m)}
+  .toc a:hover{background:var(--navy-050);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="guia-hero">
+        <div class="tw-eye" style="font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:600">Manual del sistema</div>
+        <h1>Por qué existe cada módulo</h1>
+        <p>SIGEP no es un catálogo de pantallas: es un modelo de cómo opera una policía investigativa. Aquí está el propósito, el problema que resuelve y el flujo de cada módulo. ¿Prefieres verlo guiado? <a href="index.html?tour=1" style="color:var(--gold-400);font-weight:600">Inicia el recorrido interactivo →</a></p>
+      </div>
+
+      <div class="grid g3" style="align-items:start">
+        <div class="card" style="position:sticky;top:76px">
+          <div class="card__h"><h3>Contenido</h3></div>
+          <div class="card__b toc" style="padding:var(--s3)">
+            <a href="#dashboard">1 · Cuadro de mando</a>
+            <a href="#personas">2 · Personas y carrera</a>
+            <a href="#traza">3 · Trazabilidad de activos</a>
+            <a href="#logistica">4 · Logística y compras</a>
+            <a href="#finanzas">5 · Finanzas</a>
+            <a href="#seguridad">6 · Seguridad y control (OIV)</a>
+            <a href="#interop">7 · Interoperabilidad</a>
+            <a href="#plataforma">8 · Plataforma</a>
+            <a href="#casos">9 · Casos borde (el valor)</a>
+          </div>
+        </div>
+
+        <div class="stack sp2" style="gap:var(--s5)">
+
+          <div class="card mod" id="dashboard"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">1</div><div><h3 style="font-size:var(--fs-18)">Cuadro de mando</h3><p class="muted" style="font-size:12px">Dirección General · JENATID</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>La información institucional vive en silos (finanzas por un lado, personal por otro, armamento en planillas). La Dirección no tiene una vista única para decidir.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>KPIs cruzados Finanzas · Logística · Personas en tiempo real, con drill-down a cada módulo y alertas (incidentes ANCI, custodia pendiente).</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> una sola verdad para el mando, con la trazabilidad de activos y el estado del ecosistema estatal a la vista. <a href="index.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="personas"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">2</div><div><h3 style="font-size:var(--fs-18)">Personas y carrera</h3><p class="muted" style="font-size:12px">Funcionarios · Remuneraciones · Asistencia · Autoservicio</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>Una policía tiene estatuto y escalafón propios (DFL 1/1980) y previsión DIPRECA, no AFP. Una nómina civil genérica no modela grados, asignaciones ni el ciclo de vida del funcionario.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Funcionario → activos en custodia → ciclo de vida (nombramiento → ascenso → sumario → egreso) → remuneración por escalafón, todo trazado en SIAPER.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> gestión de personas que entiende la carrera policial. <a href="funcionarios.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="traza"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">3</div><div><h3 style="font-size:var(--fs-18)">Trazabilidad de activos <span class="chip chip--gold" style="vertical-align:middle">el diferenciador</span></h3><p class="muted" style="font-size:12px">Armamento · EPP · dispositivos · pañol</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>El activo crítico de una policía está en manos de personas: armas, munición, chalecos, credenciales. Un ERP contable lo trata como "activo fijo" despersonalizado y no sabe quién lo custodia hoy.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Cadena de custodia por funcionario (con serie y responsable) · pañol con lector para entrega/devolución por turno · extravío → incidente automático · registro coordinado con DGMN.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> saber siempre quién tiene qué, desde cuándo y quién responde. <a href="armamento.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="logistica"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">4</div><div><h3 style="font-size:var(--fs-18)">Logística y compras</h3><p class="muted" style="font-size:12px">Compras · activos · flota · bodegas</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>Comprar en el Estado es un flujo largo, normado (Ley 19.886) y auditado. Desconectado de Mercado Público y SIGFE, genera retrabajo y hallazgos de Contraloría.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Requerimiento → plan de compras → OC en ChileCompra → recepción conforme → devengo en SIGFE → pago vía TGR, en una sola línea trazable.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> el ciclo de abastecimiento completo e integrado. <a href="compras.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="finanzas"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">5</div><div><h3 style="font-size:var(--fs-18)">Finanzas</h3><p class="muted" style="font-size:12px">Presupuesto · contabilidad · tesorería</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>La PDI rinde a DIPRES y Contraloría con contabilidad gubernamental. La homologación a SIGFE hecha a mano es lenta y propensa a error.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Formulación → ejecución presupuestaria homologada a SIGFE 2.0 → conciliación bancaria → cierre y rendición a Contraloría.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> rendir al Estado sin fricción, con SIGFE nativo. <a href="presupuesto.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="seguridad"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">6</div><div><h3 style="font-size:var(--fs-18)">Seguridad y control</h3><p class="muted" style="font-size:12px">OIV · Ley 21.663 / ANCI · Ley 21.719</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>La PDI es Operador de Importancia Vital y maneja información secreta. Debe cumplir ANCI (incidentes 3 h/72 h/30 d), clasificar la información y probar cada acceso.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Clasificación público/reservado/secreto + compartimentación · audit-trail inmutable con no repudio · panel de incidentes ANCI · accesos y roles con segregación de funciones · ClaveÚnica + MFA.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> cumplimiento OIV y protección del secreto por diseño. <a href="incidentes.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="interop"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">7</div><div><h3 style="font-size:var(--fs-18)">Interoperabilidad</h3><p class="muted" style="font-size:12px">Ecosistema del Estado</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>Operar legalmente exige una decena de integraciones estatales obligatorias. Parchadas por separado, son frágiles e inauditables.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Un bus único de interoperabilidad: SIGFE · ChileCompra · SII · DGMN · SIAPER + Toma de Razón · TGR · DIPRECA · Registro Civil/ClaveÚnica · IMED · Transparencia Activa.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> el sistema conectado al Estado, no una isla. <a href="integraciones.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="plataforma"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">8</div><div><h3 style="font-size:var(--fs-18)">Plataforma</h3><p class="muted" style="font-size:12px">Nube soberana · datos maestros · adopción · soporte</p></div></div>
+            <div class="mod__grid">
+              <div class="mod__box"><span class="lbl">Qué problema resuelve</span><p>La soberanía real (no solo datos en Chile) y la adopción son lo que hace o quiebra un ERP de Estado. Riesgos: lock-in, migración de legados, resistencia al cambio.</p></div>
+              <div class="mod__box"><span class="lbl">El flujo</span><p>Nube soberana en Chile con llaves propias (BYOK) · datos maestros gobernados · migración por olas · gestión del cambio por unidad · mesa de ayuda con SLA · plan de reversibilidad/salida.</p></div>
+            </div>
+            <p style="margin-top:var(--s3);font-size:13px"><b>Valor:</b> que sea soberano hoy y portable mañana, y que la gente lo use. <a href="infraestructura.html">Abrir módulo →</a></p>
+          </div></div>
+
+          <div class="card mod" id="casos"><div class="card__b">
+            <div class="row" style="gap:var(--s3)"><div class="mod__ico">9</div><div><h3 style="font-size:var(--fs-18)">Casos borde · donde se ve el valor</h3><p class="muted" style="font-size:12px">Los flujos que conectan todo</p></div></div>
+            <p style="font-size:13px;margin-top:var(--s3)">El valor real aparece cuando los módulos <b>conversan</b>. Estos flujos automáticos son la prueba de que el sistema entiende la operación:</p>
+            <ul style="font-size:13px;line-height:1.7;margin:var(--s3) 0 0;padding-left:18px">
+              <li><b>Suspensión</b> → retira arma + bloquea credencial + revoca accesos + abre incidente. <a href="funcionario-detalle.html">Verlo en vivo →</a></li>
+              <li><b>Destinación</b> → mueve activos + asignación de zona + accesos, en un flujo.</li>
+              <li><b>Traspaso de custodia</b> → reasigna todos los bienes al cambiar de jefe de unidad.</li>
+              <li><b>Emergencia</b> → compra de urgencia por trato directo con control posterior.</li>
+              <li><b>Fallecimiento en acto de servicio</b> → cadena de beneficios/pensión DIPRECA + devolución de bienes.</li>
+            </ul>
+          </div></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='';window.SIGEP_CRUMBS=['Inicio','Guía y manual'];window.SIGEP_CLF='publico';</script>
+<script src="app.js"></script>
+</body>
+</html>

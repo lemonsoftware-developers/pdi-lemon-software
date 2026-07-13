@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Autoservicio funcionario</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Personas · autoservicio (ESS / MSS)</div><h1>Mi espacio</h1><p>Insp. Luis Vega Contreras · Placa 9.821 · BICRIM Santiago</p></div></div>
+
+      <div class="grid g3" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Feriado disponible</div><div class="stat__v">14 <small>días</small></div></div>
+        <div class="stat"><div class="stat__l">Permisos usados</div><div class="stat__v">3 <small>/ 6</small></div></div>
+        <div class="stat"><div class="stat__l">Última liquidación</div><div class="stat__v" style="font-size:28px">Jun 2026</div></div>
+      </div>
+
+      <div class="grid g2" style="align-items:start">
+        <div class="card"><div class="card__h"><h3>Solicitudes rápidas</h3></div><div class="card__b"><div class="stack" style="gap:var(--s2)">
+          <button class="btn btn--pri" style="justify-content:flex-start" data-open="m-fer">Solicitar feriado</button>
+          <button class="btn btn--ghost" style="justify-content:flex-start" onclick="toast('Solicitud enviada','Permiso administrativo · a la espera de VB de jefatura')">Solicitar permiso administrativo</button>
+          <button class="btn btn--ghost" style="justify-content:flex-start" onclick="toast('Descargando','Certificado de antigüedad generado')">Descargar certificado de antigüedad</button>
+          <a class="btn btn--ghost" style="justify-content:flex-start" href="remuneraciones.html">Ver mis liquidaciones</a>
+        </div></div></div>
+
+        <div class="card"><div class="card__h"><h3>Mis solicitudes</h3></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Tipo</th><th>Período</th><th>Estado</th></tr></thead>
+          <tbody id="sol">
+            <tr><td>Feriado legal</td><td>15–19 jul</td><td><span class="chip chip--warn">Pendiente VB</span></td></tr>
+            <tr><td>Permiso administrativo</td><td>03 jun</td><td><span class="chip chip--ok">Aprobado</span></td></tr>
+          </tbody>
+        </table></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="m-fer"><div class="modal"><div class="modal__h"><div><h3>Solicitar feriado</h3><p>14 días disponibles</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b"><form id="f-fer"><div class="field"><label>Desde *</label><input required type="date"></div><div class="field"><label>Hasta *</label><input required type="date"></div></form></div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--pri" onclick="if(validateForm(document.getElementById('f-fer'))){closeModal(this);document.getElementById('sol').insertAdjacentHTML('afterbegin','<tr><td>Feriado legal</td><td>nuevo</td><td><span class=\'chip chip--warn\'>Pendiente VB</span></td></tr>');toast('Feriado solicitado','Enviado a jefatura para visto bueno');}">Enviar solicitud</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='autoservicio';window.SIGEP_CRUMBS=['Inicio','Autoservicio funcionario'];window.SIGEP_CLF='publico';</script>
+<script src="app.js"></script>
+</body>
+</html>

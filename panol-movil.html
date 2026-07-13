@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Pañol móvil</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Logística · terreno</div><h1>Pañol móvil</h1><p>App con lector para cuarteles · funciona con conectividad intermitente (sincroniza al reconectar)</p></div>
+      <div class="mast__act"><a class="btn btn--ghost" href="panol.html">Vista escritorio</a></div></div>
+
+      <div class="phone">
+        <div class="phone__scr">
+          <div class="phone__bar" id="pbar"></div>
+          <div class="phone__body">
+            <div class="alert alert--warn" style="font-size:12px;margin-bottom:14px"><span>⚠</span><div><b>Modo offline</b> — 3 registros en cola, se sincronizarán al reconectar.</div></div>
+
+            <button class="btn btn--pri" style="width:100%;height:44px;margin-bottom:8px" onclick="scan()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" width="18" height="18"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2M7 12h10"/></svg>
+              Escanear arma
+            </button>
+            <button class="btn btn--gold" style="width:100%;height:40px;margin-bottom:16px" onclick="scan('Entrega')">Registrar entrega manual</button>
+
+            <div class="sect">Movimientos en cola</div>
+            <div id="mlist">
+              <div class="mrow"><span class="chip chip--ok" style="height:auto"><span class="dot"></span></span><div style="flex:1"><strong>GL-17-88109</strong><small>Subcom. M. Rojas · devolución 06:02</small></div><span class="chip chip--n" style="font-size:10px">en cola</span></div>
+              <div class="mrow"><span class="chip chip--ok" style="height:auto"><span class="dot"></span></span><div style="flex:1"><strong>TS-X2-3390</strong><small>Subinsp. R. Silva · devolución 05:58</small></div><span class="chip chip--n" style="font-size:10px">en cola</span></div>
+              <div class="mrow"><span class="chip chip--danger" style="height:auto"><span class="dot"></span></span><div style="flex:1"><strong>GL-19-70233</strong><small>Det. C. Fuentes · NO devuelta</small></div><span class="chip chip--danger" style="font-size:10px">alerta</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='panol';window.SIGEP_CRUMBS=['Inicio','Pañol · control de turno','Móvil'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+document.getElementById('pbar').innerHTML='<img src="'+(window.PDI_LOGO||"assets/pdi-logo.png")+'" alt="PDI" style="height:26px;width:auto">'+'<strong>SIGEP</strong><span class="phone__off">● OFFLINE</span>';
+var seq=['GL-17-88421','GL-17-90551','SG-516-2044'];var si=0;
+function scan(tipo){
+  tipo=tipo||'Devolución';
+  var s=seq[si%seq.length];si++;
+  var cls=tipo==='Entrega'?'chip--warn':'chip--ok';
+  document.getElementById('mlist').insertAdjacentHTML('afterbegin',
+    '<div class="mrow"><span class="chip '+cls+'" style="height:auto"><span class="dot"></span></span><div style="flex:1"><strong>'+s+'</strong><small>Insp. L. Vega · '+tipo+' ahora</small></div><span class="chip chip--n" style="font-size:10px">en cola</span></div>');
+  toast(tipo+' en cola', s+' · se sincronizará al reconectar');
+}
+</script>
+</body>
+</html>

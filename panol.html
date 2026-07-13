@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Pañol · control de turno</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística · pañol BICRIM Santiago</div><h1>Pañol · control de turno</h1><p>Entrega y devolución de armamento y EPP · app con lector · turno noche 28-06-2026</p></div>
+        <div class="mast__act"><a class="btn btn--ghost" href="panol-movil.html">Vista móvil (terreno)</a><span class="chip chip--info chip--lg"><span class="dot"></span>Turno abierto · 20:00</span></div>
+      </div>
+
+      <div class="grid g3" style="align-items:start">
+        <div class="card">
+          <div class="card__h"><h3>Registrar movimiento</h3></div>
+          <div class="card__b">
+            <div style="text-align:center;padding:var(--s4) 0 var(--s5)">
+              <div style="width:88px;height:88px;border-radius:var(--r3);background:var(--navy-050);border:2px dashed var(--navy-400);display:grid;place-items:center;margin:0 auto var(--s3);color:var(--navy-600)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="40" height="40"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2M7 12h10"/></svg>
+              </div>
+              <p class="muted" style="font-size:12px">Escanee el código del arma o ingrese la serie</p>
+            </div>
+            <form id="f-scan" onsubmit="registrar(event)">
+              <div class="field"><label>Serie del activo</label><input id="in-serie" placeholder="Ej: GL-17-88421" autocomplete="off"></div>
+              <div class="field"><label>Funcionario</label><input id="in-func" placeholder="Nombre o placa" autocomplete="off"></div>
+              <div class="field"><label>Munición devuelta (de 45 de cargo)</label><input id="in-mun" type="number" value="45" min="0" max="45" inputmode="numeric"><div class="hint">Solo aplica a la devolución. Un faltante abre incidente.</div></div>
+              <div class="row" style="gap:var(--s2)">
+                <button type="button" class="btn btn--pri" style="flex:1" onclick="registrar(event,'Devolución')">Registrar devolución</button>
+                <button type="button" class="btn btn--gold" style="flex:1" onclick="registrar(event,'Entrega')">Registrar entrega</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card sp2">
+          <div class="card__h"><h3>Movimientos del turno</h3><div class="r"><span class="chip chip--n" id="cont">6 registros</span></div></div>
+          <div class="tw">
+            <table class="tbl"><thead><tr><th>Hora</th><th>Activo</th><th>Funcionario</th><th>Movimiento</th><th>Munición</th></tr></thead>
+            <tbody id="mov">
+              <tr><td class="mono" style="font-size:12px">06:02</td><td><span class="serie">GL-17-88109</span></td><td>Subcom. M. Rojas</td><td><span class="chip chip--ok">Devolución</span></td><td class="mono" style="font-size:12px">45/45 OK</td></tr>
+              <tr><td class="mono" style="font-size:12px">05:58</td><td><span class="serie">TS-X2-3390</span></td><td>Subinsp. R. Silva</td><td><span class="chip chip--ok">Devolución</span></td><td class="mono" style="font-size:12px">—</td></tr>
+              <tr><td class="mono" style="font-size:12px">05:40</td><td><span class="serie">GL-19-70233</span></td><td>Det. C. Fuentes</td><td><span class="chip chip--danger">No devuelta</span></td><td class="mono" style="font-size:12px">alerta</td></tr>
+              <tr><td class="mono" style="font-size:12px">20:12</td><td><span class="serie">GL-17-88109</span></td><td>Subcom. M. Rojas</td><td><span class="chip chip--warn">Entrega</span></td><td class="mono" style="font-size:12px">45/45</td></tr>
+              <tr><td class="mono" style="font-size:12px">20:08</td><td><span class="serie">TS-X2-3390</span></td><td>Subinsp. R. Silva</td><td><span class="chip chip--warn">Entrega</span></td><td class="mono" style="font-size:12px">—</td></tr>
+              <tr><td class="mono" style="font-size:12px">20:05</td><td><span class="serie">GL-19-70233</span></td><td>Det. C. Fuentes</td><td><span class="chip chip--warn">Entrega</span></td><td class="mono" style="font-size:12px">45/45</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='panol';window.SIGEP_CRUMBS=['Inicio','Pañol · control de turno'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+var n=6;
+function registrar(e,tipo){
+  if(e&&e.preventDefault)e.preventDefault();
+  tipo=tipo||'Devolución';
+  var serie=document.getElementById('in-serie').value.trim()||'GL-17-88421';
+  var func=document.getElementById('in-func').value.trim()||'Insp. L. Vega';
+  var d=new Date();var hh=(''+d.getHours()).padStart(2,'0')+':'+(''+d.getMinutes()).padStart(2,'0');
+  var cls=tipo==='Entrega'?'chip--warn':'chip--ok';
+  var movLbl=tipo, munCell='45/45', discrep=false;
+  if(tipo==='Devolución'){
+    var dev=parseInt(document.getElementById('in-mun').value,10); if(isNaN(dev))dev=45;
+    if(dev<45){ discrep=true; cls='chip--danger'; movLbl='Discrepancia'; munCell=dev+'/45 · faltan '+(45-dev); }
+    else { munCell='45/45 OK'; }
+  } else { munCell=serie.indexOf('GL')===0||serie.indexOf('SG')===0?'45/45':'—'; }
+  document.getElementById('mov').insertAdjacentHTML('afterbegin',
+    '<tr><td class="mono" style="font-size:12px">'+hh+'</td><td><span class="serie">'+serie+'</span></td><td>'+func+'</td><td><span class="chip '+cls+'">'+movLbl+'</span></td><td class="mono" style="font-size:12px'+(discrep?';color:var(--danger-fg);font-weight:700':'')+'">'+munCell+'</td></tr>');
+  n++;document.getElementById('cont').textContent=n+' registros';
+  document.getElementById('in-serie').value='';document.getElementById('in-func').value='';document.getElementById('in-mun').value='45';
+  if(discrep) toast('Discrepancia de munición', serie+' · faltan '+(45-parseInt(munCell))+' cartuchos · incidente abierto','danger');
+  else toast(tipo+' registrada', serie+' · '+func+' · trazado en auditoría');
+}
+</script>
+</body>
+</html>

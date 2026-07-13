@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Armamento y munición</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística y activos</div><h1>Armamento y munición</h1><p>Trazabilidad y cadena de custodia · registro coordinado con DGMN</p></div>
+        <div class="mast__act"><button class="btn btn--ghost" data-open="m-trasp">Traspaso de custodia</button><button class="btn btn--pri">Registrar arma</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Parque total</div><div class="stat__v">8.640</div><div class="stat__x">armas de cargo institucional</div></div>
+        <div class="stat gold"><div class="stat__l">Conciliadas</div><div class="stat__v">96,4<small>%</small></div><div class="stat__d up">▲ 1,2 pts</div></div>
+        <div class="stat warn"><div class="stat__l">Custodia pendiente</div><div class="stat__v">312</div><div class="stat__x">sin conciliar o sin devolver</div></div>
+        <div class="stat danger"><div class="stat__l">Incidentes de armas</div><div class="stat__v">3</div><div class="stat__x">extravío/robo · últimos 12 meses</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Parque de armamento</h3>
+          <div class="r"><span class="legend"><span><i style="background:var(--ok-500)"></i>al día</span><span><i style="background:var(--warn-500)"></i>pendiente</span><span><i style="background:var(--danger-500)"></i>incidente</span></span></div>
+        </div>
+        <div class="tw">
+          <table class="tbl">
+            <thead><tr><th>Arma</th><th>Serie</th><th>Registro DGMN</th><th>Asignada a</th><th>Última custodia</th><th>Estado</th></tr></thead>
+            <tbody>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Glock 17 Gen5</strong></td><td><span class="serie">GL-17-88421</span></td><td><span class="chip chip--ok"><span class="dot"></span>Inscrita</span></td><td>Insp. L. Vega</td><td class="mono" style="font-size:12px">retiro ordenado</td><td><span class="chip chip--danger"><span class="dot"></span>Retiro a pañol</span></td></tr>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Glock 19 Gen5</strong></td><td><span class="serie">GL-19-70233</span></td><td><span class="chip chip--ok"><span class="dot"></span>Inscrita</span></td><td>Det. C. Fuentes</td><td class="mono" style="font-size:12px">turno cerrado 06:00</td><td><span class="chip chip--danger"><span class="dot"></span>Sin devolver</span></td></tr>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Glock 17 Gen5</strong></td><td><span class="serie">GL-17-88109</span></td><td><span class="chip chip--ok"><span class="dot"></span>Inscrita</span></td><td>Subcom. M. Rojas</td><td class="mono" style="font-size:12px">hoy 08:12</td><td><span class="chip chip--ok"><span class="dot"></span>Al día</span></td></tr>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Fusil Sig 516</strong></td><td><span class="serie">SG-516-2044</span></td><td><span class="chip chip--warn"><span class="dot"></span>Renovación</span></td><td>Armería Central</td><td class="mono" style="font-size:12px">en pañol</td><td><span class="chip chip--ok"><span class="dot"></span>En pañol</span></td></tr>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Glock 17 Gen5</strong></td><td><span class="serie">GL-17-90551</span></td><td><span class="chip chip--danger"><span class="dot"></span>Baja DGMN</span></td><td>—</td><td class="mono" style="font-size:12px">extravío 04-2026</td><td><span class="chip chip--danger"><span class="dot"></span>Incidente</span></td></tr>
+              <tr class="lk" data-href="arma-detalle.html"><td><strong>Taser X2</strong></td><td><span class="serie">TS-X2-3390</span></td><td><span class="chip chip--n">no aplica</span></td><td>Subinsp. R. Silva</td><td class="mono" style="font-size:12px">hoy 07:55</td><td><span class="chip chip--ok"><span class="dot"></span>Al día</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal traspaso masivo de custodia (caso borde) -->
+<div class="scrim" id="m-trasp"><div class="modal"><div class="modal__h"><div><h3>Traspaso masivo de custodia</h3><p>Cambio de jefe de unidad · reasigna la custodia de los bienes</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="alert alert--warn" style="margin-bottom:var(--s4)"><span>⚠</span><div>Se transfiere la <b>custodia</b> de todos los bienes serializados de la unidad del custodio saliente al entrante. Cada ítem queda con acta y traza.</div></div>
+    <form id="f-trasp">
+      <div class="field"><label>Unidad *</label><select required><option>BICRIM Santiago</option><option>Jef. Nac. Antinarcóticos</option><option>Lab. de Criminalística</option></select></div>
+      <div class="field"><label>Custodio entrante *</label><input required placeholder="Nombre y placa del nuevo jefe de unidad"><div class="err">Ingrese el custodio entrante.</div></div>
+    </form>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--pri" onclick="if(validateForm(document.getElementById('f-trasp'))){closeModal(this);toast('Traspaso de custodia registrado','142 bienes reasignados al nuevo custodio · actas generadas · trazado en auditoría');}">Confirmar traspaso</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='armamento';window.SIGEP_CRUMBS=['Inicio','Armamento y munición'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

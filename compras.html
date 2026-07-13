@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Compras y abastecimiento</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística y activos</div><h1>Compras y abastecimiento</h1><p>Del requerimiento al pago · integrado a Mercado Público, SIGFE 2.0 y Tesorería</p></div>
+        <div class="mast__act"><button class="btn btn--danger" data-open="m-urg">Compra de urgencia</button><button class="btn btn--pri">Nuevo requerimiento</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">OC del mes</div><div class="stat__v">184</div></div>
+        <div class="stat"><div class="stat__l">En proceso</div><div class="stat__v">37</div></div>
+        <div class="stat gold"><div class="stat__l">Ejecutado (mes)</div><div class="stat__v" style="font-size:34px">M$ 3.180</div></div>
+        <div class="stat warn"><div class="stat__l">Pendiente devengo</div><div class="stat__v">12</div></div>
+      </div>
+
+      <!-- OC destacada con journey E2E -->
+      <div class="card" style="margin-bottom:var(--s5)">
+        <div class="card__h"><h3>OC N° 2.204 · Chalecos balísticos NIJ IIIA (lote 120)</h3><span class="sub">M$ 3.180 · proveedor Blindajes del Sur SpA</span><div class="r"><span id="oc-clf" class="chip chip--info"><span class="dot"></span>En curso</span></div></div>
+        <div class="card__b">
+          <div class="steps" id="steps">
+            <div class="step done"><span class="step__n">✓</span><div class="step__t">Requerimiento</div><div class="step__s">BICRIM · aprobado</div></div>
+            <div class="step done"><span class="step__n">✓</span><div class="step__t">Plan de compras</div><div class="step__s">Ítem 04 · Ley 19.886</div></div>
+            <div class="step done"><span class="step__n">✓</span><div class="step__t">OC Mercado Público</div><div class="step__s">enviada 17:30</div></div>
+            <div class="step cur"><span class="step__n">4</span><div class="step__t">Recepción</div><div class="step__s">conforme pendiente</div></div>
+            <div class="step"><span class="step__n">5</span><div class="step__t">Devengo SIGFE</div><div class="step__s">—</div></div>
+            <div class="step"><span class="step__n">6</span><div class="step__t">Pago TGR</div><div class="step__s">—</div></div>
+          </div>
+          <div class="row between" style="margin-top:var(--s5)">
+            <div id="oc-hint" class="muted" style="font-size:13px">Etapa actual: <b>Recepción</b> — registrar recepción conforme del lote para continuar hacia el devengo en SIGFE.</div>
+            <button id="oc-btn" class="btn btn--pri" onclick="avanzar()">Registrar recepción conforme</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Órdenes de compra recientes</h3></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>OC</th><th>Detalle</th><th class="num">Monto (M$)</th><th>Etapa</th><th>SIGFE</th></tr></thead>
+          <tbody id="octab">
+            <tr><td class="mono" style="font-size:12px">2.204</td><td>Chalecos balísticos NIJ IIIA (120)</td><td class="num">3.180</td><td><span class="chip chip--info">Recepción</span></td><td><span class="chip chip--n">—</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">2.203</td><td>Munición 9mm (40.000 cartuchos)</td><td class="num">2.740</td><td><span class="chip chip--warn">Devengo</span></td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">2.199</td><td>Notebooks periciales (60)</td><td class="num">4.010</td><td><span class="chip chip--ok">Pagada</span></td><td><span class="chip chip--ok">Devengado</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">2.195</td><td>Combustible flota (convenio marco)</td><td class="num">1.520</td><td><span class="chip chip--ok">Pagada</span></td><td><span class="chip chip--ok">Devengado</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal compra de urgencia (caso borde: emergencia) -->
+<div class="scrim" id="m-urg"><div class="modal"><div class="modal__h"><div><h3>Compra de urgencia · trato directo</h3><p>Estado de excepción / emergencia operativa</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="alert alert--danger" style="margin-bottom:var(--s4)"><span>⚠</span><div>El <b>trato directo</b> (Art. 8 Ley 19.886) omite la licitación por emergencia. Requiere <b>resolución fundada</b> y queda con trazabilidad reforzada para control posterior de Contraloría.</div></div>
+    <form id="f-urg">
+      <div class="field"><label>Detalle *</label><input required placeholder="Ej: Equipamiento por operativo de emergencia"><div class="err">Ingrese el detalle.</div></div>
+      <div class="field"><label>Resolución fundada *</label><input required placeholder="Ej: Res. Ex. N° 4.812/2026"><div class="err">Ingrese la resolución.</div></div>
+      <div class="field"><label>Monto (M$)</label><input placeholder="Ej: 2.400" inputmode="numeric"></div>
+    </form>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--danger" onclick="urgencia()">Autorizar trato directo</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='compras';window.SIGEP_CRUMBS=['Inicio','Compras y abastecimiento'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+var steps=document.getElementById('steps').children; // 6 pasos
+var cur=3; // Recepción es la etapa actual
+var flow=[
+ {done:'conforme registrada', btn:'Devengar en SIGFE', hint:'Etapa actual: <b>Devengo SIGFE</b> — enviar el devengo contable a SIGFE 2.0.', toast:['Recepción registrada','Lote conforme · continúa a devengo']},
+ {done:'devengado', btn:'Enviar pago a TGR', hint:'Etapa actual: <b>Pago TGR</b> — instruir el pago a Tesorería General.', toast:['Devengo enviado a SIGFE','Homologados III · asiento contable generado']},
+ {done:'pagado', btn:'Proceso completado', hint:'<b>Proceso completo.</b> OC recepcionada, devengada en SIGFE y pagada vía TGR. Todo trazado en auditoría.', toast:['Pago instruido a TGR','Egreso fiscal · conciliación bancaria pendiente','ok'], final:true}
+];
+var t=0;
+function avanzar(){
+  if(t>=flow.length) return;
+  var f=flow[t];
+  steps[cur].classList.remove('cur');steps[cur].classList.add('done');
+  steps[cur].querySelector('.step__n').textContent='✓';
+  steps[cur].querySelector('.step__s').textContent=f.done;
+  cur++;
+  var btn=document.getElementById('oc-btn');
+  if(!f.final) steps[cur].classList.add('cur');
+  document.getElementById('oc-hint').innerHTML=f.hint;
+  btn.textContent=f.btn;
+  if(f.toast) toast(f.toast[0],f.toast[1],f.toast[2]);
+  if(f.final){btn.disabled=true;var c=document.getElementById('oc-clf');c.className='chip chip--ok';c.innerHTML='<span class="dot"></span>Pagada';}
+  t++;
+}
+function urgencia(){
+  var f=document.getElementById('f-urg');
+  if(!validateForm(f)){return;}
+  closeModal(document.querySelector('#m-urg .modal__x'));
+  document.getElementById('octab').insertAdjacentHTML('afterbegin',
+    '<tr><td class="mono" style="font-size:12px">2.205</td><td>'+ (f.querySelector('input').value||'Compra de urgencia') +' <span class="chip chip--danger" style="margin-left:6px">Trato directo</span></td><td class="num">2.400</td><td><span class="chip chip--warn">Emergencia</span></td><td><span class="chip chip--n">—</span></td></tr>');
+  toast('Trato directo autorizado','Compra de urgencia registrada · control posterior Contraloría · trazado','danger');
+}
+</script>
+</body>
+</html>

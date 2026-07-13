@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Luis Vega Contreras</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <a href="funcionarios.html" class="btn btn--ghost btn--sm" style="margin-bottom:var(--s4)">← Volver a funcionarios</a>
+
+      <div class="mast">
+        <div style="display:flex;gap:var(--s4);align-items:center">
+          <div class="person__a" style="width:60px;height:60px;font-size:var(--fs-20)">LV</div>
+          <div>
+            <div class="mast__eye">Inspector · BICRIM Santiago</div>
+            <h1 style="font-size:32px">Luis Vega Contreras</h1>
+            <p>RUT 15.982.341-2 · Placa 9.821 · Escalafón Oficiales Policiales · Previsión DIPRECA</p>
+          </div>
+        </div>
+        <div class="mast__act">
+          <span id="sit-chip" class="chip chip--ok chip--lg"><span class="dot"></span>Activo</span>
+          <button class="btn btn--ghost" data-open="m-dest">Destinar</button>
+          <button id="btn-susp" class="btn btn--danger" data-open="m-susp">Suspender funcionario</button>
+        </div>
+      </div>
+
+      <div id="cascade-banner"></div>
+
+      <div data-tabs class="tabs">
+        <button class="tab on" data-tab="activos">Activos asignados</button>
+        <button class="tab" data-tab="resumen">Resumen</button>
+        <button class="tab" data-tab="ciclo">Ciclo de vida</button>
+        <button class="tab" data-tab="accesos">Accesos</button>
+      </div>
+
+      <!-- ACTIVOS -->
+      <div data-panel="activos">
+        <div class="card">
+          <div class="card__h"><h3>Activos serializados en custodia</h3><span class="sub">custodia vigente del funcionario</span></div>
+          <div class="tw">
+            <table class="tbl">
+              <thead><tr><th>Activo</th><th>Categoría</th><th>Serie</th><th>Desde</th><th>Estado custodia</th></tr></thead>
+              <tbody>
+                <tr id="row-arma" class="lk" data-href="arma-detalle.html">
+                  <td><strong>Pistola Glock 17 Gen5</strong></td><td>Armamento</td><td><span class="serie">GL-17-88421</span></td><td class="mono" style="font-size:12px">12-03-2024</td>
+                  <td><span id="st-arma" class="chip chip--ok"><span class="dot"></span>Asignada · porte vigente</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Credencial y placa institucional</strong></td><td>Identificación</td><td><span class="serie">CR-9821</span></td><td class="mono" style="font-size:12px">02-01-2019</td>
+                  <td><span id="st-cred" class="chip chip--ok"><span class="dot"></span>Vigente</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Chaleco balístico NIJ IIIA</strong></td><td>EPP</td><td><span class="serie">EPP-CB-1180</span></td><td class="mono" style="font-size:12px">08-05-2025</td>
+                  <td><span class="chip chip--ok"><span class="dot"></span>Vigente</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Municiones 9mm (cargo)</strong></td><td>Munición</td><td><span class="serie">45 cartuchos</span></td><td class="mono" style="font-size:12px">12-03-2024</td>
+                  <td><span id="st-mun" class="chip chip--ok"><span class="dot"></span>Conciliado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESUMEN -->
+      <div data-panel="resumen" style="display:none">
+        <div class="grid g2">
+          <div class="card"><div class="card__h"><h3>Datos institucionales</h3></div><div class="card__b">
+            <dl class="dl">
+              <dt>Grado</dt><dd>Inspector</dd>
+              <dt>Escalafón</dt><dd>Oficiales Policiales</dd>
+              <dt>Unidad</dt><dd>BICRIM Santiago</dd>
+              <dt>Ingreso</dt><dd>02-01-2019 (ESCIPOL, promoción 2018)</dd>
+              <dt>Antigüedad</dt><dd>7 años 5 meses</dd>
+              <dt>Previsión</dt><dd>DIPRECA</dd>
+              <dt>Situación</dt><dd><span id="sit-dl">Activo</span></dd>
+            </dl>
+          </div></div>
+          <div class="card"><div class="card__h"><h3>Remuneración (mes en curso)</h3><span class="sub">referencial</span></div><div class="card__b">
+            <dl class="dl">
+              <dt>Sueldo base grado</dt><dd class="mono">$ 1.842.550</dd>
+              <dt>Asignaciones institucionales</dt><dd class="mono">$ 936.200</dd>
+              <dt>Asignación de zona</dt><dd class="mono">$ 0</dd>
+              <dt>Descuentos DIPRECA</dt><dd class="mono">- $ 388.410</dd>
+              <dt style="font-weight:700;color:var(--tx-strong)">Líquido estimado</dt><dd class="mono" style="font-weight:700">$ 2.390.340</dd>
+            </dl>
+            <div class="alert alert--info" style="margin-top:var(--s4);font-size:12px"><span>ℹ</span><div>Cálculo real de nómina fuera del alcance del prototipo (módulo Remuneraciones).</div></div>
+          </div></div>
+        </div>
+      </div>
+
+      <!-- CICLO -->
+      <div data-panel="ciclo" style="display:none">
+        <div class="card"><div class="card__h"><h3>Ciclo de vida del funcionario</h3><span class="sub">registrado y trazado en SIAPER / auditoría</span><div class="r"><button class="btn btn--sm btn--ghost" data-open="m-egreso">Registrar egreso</button></div></div><div class="card__b">
+          <ul class="tl" id="tl-ciclo">
+            <li><span class="tl__d ok"></span><div class="tl__w">02-01-2019</div><div class="tl__t">Nombramiento · grado Detective</div><div class="tl__o">Acto registrado en SIAPER · Toma de Razón CGR</div></li>
+            <li><span class="tl__d ok"></span><div class="tl__w">15-07-2022</div><div class="tl__t">Ascenso a Inspector</div><div class="tl__o">Escalafón Oficiales Policiales</div></li>
+            <li><span class="tl__d ok"></span><div class="tl__w">12-03-2024</div><div class="tl__t">Asignación de armamento · Glock 17 (GL-17-88421)</div><div class="tl__o">Aptitud psicológica de porte vigente</div></li>
+            <li><span class="tl__d"></span><div class="tl__w">03-02-2026</div><div class="tl__t">Destinación a BICRIM Santiago</div><div class="tl__o">Traslado de activos asociado</div></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <!-- ACCESOS -->
+      <div data-panel="accesos" style="display:none">
+        <div class="card"><div class="card__h"><h3>Accesos a sistemas y recintos</h3></div><div class="tw">
+          <table class="tbl">
+            <thead><tr><th>Recurso</th><th>Tipo</th><th>Nivel</th><th>Estado</th></tr></thead>
+            <tbody id="tb-accesos">
+              <tr><td>SIGEP · módulos operativos</td><td>Sistema</td><td>Inspector</td><td><span class="st-acc chip chip--ok"><span class="dot"></span>Activo</span></td></tr>
+              <tr><td>Cuartel BICRIM Santiago</td><td>Acceso físico</td><td>Zona operativa</td><td><span class="st-acc chip chip--ok"><span class="dot"></span>Activo</span></td></tr>
+              <tr><td>Sistema de denuncias</td><td>Sistema</td><td>Consulta</td><td><span class="st-acc chip chip--ok"><span class="dot"></span>Activo</span></td></tr>
+              <tr><td>ClaveÚnica institucional</td><td>Identidad</td><td>MFA</td><td><span class="st-acc chip chip--ok"><span class="dot"></span>Activo</span></td></tr>
+            </tbody>
+          </table>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal suspensión -->
+<div class="scrim" id="m-susp">
+  <div class="modal">
+    <div class="modal__h"><div><h3>Suspender funcionario</h3><p>Luis Vega Contreras · Inspector · Placa 9.821</p></div><button class="modal__x" data-close>×</button></div>
+    <div class="modal__b">
+      <div class="alert alert--warn" style="margin-bottom:var(--s4)"><span>⚠</span><div>La suspensión dispara automáticamente el <b>retiro de armamento y credencial</b>, la <b>revocación de accesos</b> y la apertura de un <b>incidente de control</b>. Todo queda trazado en auditoría.</div></div>
+      <form id="f-susp">
+        <div class="field"><label>Motivo de la suspensión *</label>
+          <select required><option value="">Seleccione…</option><option>Instrucción de sumario administrativo</option><option>Medida disciplinaria preventiva</option><option>Orden judicial</option><option>Suspensión por salud</option></select>
+          <div class="err">Seleccione un motivo.</div>
+        </div>
+        <div class="field"><label>N° de acto / resolución *</label><input required placeholder="Ej: Res. Ex. N° 4.812/2026"><div class="err">Ingrese el acto administrativo.</div></div>
+        <div class="field"><label>Observaciones</label><textarea placeholder="Antecedentes de la medida…"></textarea></div>
+      </form>
+    </div>
+    <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--danger" onclick="aplicarSuspension()">Confirmar suspensión</button></div>
+  </div>
+</div>
+
+<!-- Modal destinación (2º caso borde) -->
+<div class="scrim" id="m-dest"><div class="modal"><div class="modal__h"><div><h3>Destinar funcionario</h3><p>Luis Vega Contreras · actualmente BICRIM Santiago</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="alert alert--info" style="margin-bottom:var(--s4)"><span>ℹ</span><div>La destinación mueve en un solo flujo: <b>unidad</b>, <b>activos asignados</b>, <b>asignación de zona</b> (remuneración) y <b>accesos físicos</b>. Queda trazado en auditoría y SIAPER.</div></div>
+    <form id="f-dest">
+      <div class="field"><label>Unidad de destino *</label><select id="dest-u" required><option value="">Seleccione…</option><option>BICRIM Iquique</option><option>Jefatura Regional Antofagasta</option><option>BICRIM Punta Arenas</option></select><div class="err">Seleccione la unidad.</div></div>
+      <div class="field"><label>Fecha de asunción *</label><input required type="date"><div class="err">Ingrese la fecha.</div></div>
+    </form>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--pri" onclick="aplicarDestinacion()">Confirmar destinación</button></div>
+</div></div>
+
+<!-- Modal egreso (retiro / baja / fallecimiento en acto de servicio) -->
+<div class="scrim" id="m-egreso"><div class="modal"><div class="modal__h"><div><h3>Registrar egreso del funcionario</h3><p>Cierra el ciclo institucional y dispara la devolución de bienes</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="alert alert--info" style="margin-bottom:var(--s4)"><span>ℹ</span><div>El egreso ordena la <b>devolución de todos los bienes en custodia</b>, el cese de accesos y el acto en SIAPER. El <b>fallecimiento en acto de servicio</b> activa además la cadena de beneficios y pensión DIPRECA a los beneficiarios.</div></div>
+    <form id="f-egreso">
+      <div class="field"><label>Causa del egreso *</label><select id="egreso-c" required><option value="">Seleccione…</option><option>Retiro voluntario</option><option>Baja por sumario</option><option>Fallecimiento en acto de servicio</option></select><div class="err">Seleccione la causa.</div></div>
+      <div class="field"><label>Fecha *</label><input required type="date"><div class="err">Ingrese la fecha.</div></div>
+    </form>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--danger" onclick="aplicarEgreso()">Confirmar egreso</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='funcionarios';window.SIGEP_CRUMBS=['Inicio','Funcionarios','Luis Vega Contreras'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+function aplicarSuspension(){
+  var form=document.getElementById('f-susp');
+  if(!validateForm(form)){return;}
+  closeModal(document.querySelector('#m-susp .modal__x'));
+
+  // 1. situación
+  var chip=document.getElementById('sit-chip');
+  chip.className='chip chip--danger chip--lg';chip.innerHTML='<span class="dot"></span>Suspendido';
+  var dl=document.getElementById('sit-dl'); if(dl) dl.textContent='Suspendido (sumario)';
+  var btn=document.getElementById('btn-susp'); btn.outerHTML='<span class="chip chip--danger chip--lg" style="height:36px"><span class="dot"></span>Suspensión vigente</span>';
+  var bd=document.querySelector('[data-open="m-dest"]'); if(bd) bd.setAttribute('disabled','');
+
+  // 2. activos: retiro automático
+  var a=document.getElementById('st-arma'); a.className='chip chip--danger';a.innerHTML='<span class="dot"></span>Retiro ordenado → pañol';
+  var c=document.getElementById('st-cred'); c.className='chip chip--danger';c.innerHTML='<span class="dot"></span>Bloqueada';
+  var m=document.getElementById('st-mun'); m.className='chip chip--warn';m.innerHTML='<span class="dot"></span>Devolución pendiente';
+
+  // 3. accesos revocados
+  document.querySelectorAll('#tb-accesos .st-acc').forEach(function(s){s.className='st-acc chip chip--danger';s.innerHTML='<span class="dot"></span>Revocado';});
+
+  // 4. ciclo de vida + incidente
+  var tl=document.getElementById('tl-ciclo');
+  tl.insertAdjacentHTML('afterbegin','<li><span class="tl__d danger"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">Suspensión aplicada · retiro de arma, credencial y accesos</div><div class="tl__o">automático · incidente de control INC-2026-0451 · por Comisario D. Figueroa</div></li>');
+
+  // 5. banner de resultado
+  document.getElementById('cascade-banner').innerHTML=
+    '<div class="alert alert--danger" style="margin-bottom:var(--s5)"><span>✔</span><div><b>Suspensión aplicada y cascada ejecutada.</b> Se ordenó el retiro de la Glock 17 (GL-17-88421) al pañol, se bloqueó la credencial 9.821, se revocaron 4 accesos y se abrió el incidente de control <b>INC-2026-0451</b>. Todo quedó en el <a href="auditoria.html">registro de auditoría</a>.</div></div>';
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast('Suspensión aplicada','Retiro de arma y credencial ordenado · accesos revocados · incidente abierto','danger');
+}
+function nowh(){var d=new Date();return (''+d.getHours()).padStart(2,'0')+':'+(''+d.getMinutes()).padStart(2,'0');}
+
+function aplicarDestinacion(){
+  var form=document.getElementById('f-dest');
+  if(!validateForm(form)){return;}
+  var u=document.getElementById('dest-u').value;
+  closeModal(document.querySelector('#m-dest .modal__x'));
+  // ciclo de vida
+  document.getElementById('tl-ciclo').insertAdjacentHTML('afterbegin','<li><span class="tl__d gold"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">Destinación a '+u+'</div><div class="tl__o">automático · traslado de activos + asignación de zona + accesos · registrado en SIAPER</div></li>');
+  // banner
+  document.getElementById('cascade-banner').innerHTML=
+    '<div class="alert alert--info" style="margin-bottom:var(--s5)"><span>✔</span><div><b>Destinación aplicada a '+u+'.</b> Se trasladaron los activos asignados a la nueva unidad, se activó la <b>asignación de zona</b> en remuneraciones, se actualizaron los accesos físicos y se registró el acto en SIAPER. Todo quedó en el <a href="auditoria.html">registro de auditoría</a>.</div></div>';
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast('Destinación aplicada','Traslado a '+u+' · activos y zona reasignados · SIAPER');
+}
+
+function aplicarEgreso(){
+  var form=document.getElementById('f-egreso');
+  if(!validateForm(form)){return;}
+  var causa=document.getElementById('egreso-c').value;
+  var fallece=causa.indexOf('Fallecimiento')===0;
+  closeModal(document.querySelector('#m-egreso .modal__x'));
+  // situación
+  var chip=document.getElementById('sit-chip'); chip.className='chip chip--n chip--lg'; chip.innerHTML='<span class="dot"></span>Egresado';
+  var dl=document.getElementById('sit-dl'); if(dl) dl.textContent=causa;
+  // devolución de bienes
+  var a=document.getElementById('st-arma'); a.className='chip chip--warn';a.innerHTML='<span class="dot"></span>Devolución ordenada';
+  var c=document.getElementById('st-cred'); c.className='chip chip--danger';c.innerHTML='<span class="dot"></span>Anulada';
+  // accesos
+  document.querySelectorAll('#tb-accesos .st-acc').forEach(function(s){s.className='st-acc chip chip--danger';s.innerHTML='<span class="dot"></span>Cesado';});
+  // ciclo + banner
+  var tl=document.getElementById('tl-ciclo');
+  var texto=fallece?'Fallecimiento en acto de servicio · honores institucionales':'Egreso · '+causa;
+  var sub=fallece?'automático · cadena de beneficios y pensión DIPRECA a beneficiarios · devolución de bienes · baja en SIAPER':'automático · devolución de bienes · cese de accesos · baja en SIAPER';
+  tl.insertAdjacentHTML('afterbegin','<li><span class="tl__d '+(fallece?'danger':'warn')+'"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">'+texto+'</div><div class="tl__o">'+sub+'</div></li>');
+  var banner=fallece
+   ?'<div class="alert alert--danger" style="margin-bottom:var(--s5)"><span>✔</span><div><b>Fallecimiento en acto de servicio registrado.</b> Se activó la <b>cadena de beneficios y pensión DIPRECA</b> a los beneficiarios, se ordenó la devolución de los bienes en custodia, se anuló la credencial 9.821 y se cesaron los accesos. Baja registrada en SIAPER con honores institucionales. Todo quedó en el <a href="auditoria.html">registro de auditoría</a>.</div></div>'
+   :'<div class="alert alert--warn" style="margin-bottom:var(--s5)"><span>✔</span><div><b>Egreso registrado ('+causa+').</b> Se ordenó la devolución de los bienes en custodia, se anuló la credencial y se cesaron los accesos. Baja registrada en SIAPER. Todo quedó en el <a href="auditoria.html">registro de auditoría</a>.</div></div>';
+  document.getElementById('cascade-banner').innerHTML=banner;
+  // deshabilitar acciones
+  var bs=document.getElementById('btn-susp'); if(bs) bs.setAttribute('disabled','');
+  var bd=document.querySelector('[data-open="m-dest"]'); if(bd) bd.setAttribute('disabled','');
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast(fallece?'Fallecimiento registrado':'Egreso registrado', fallece?'Beneficios y pensión DIPRECA activados · bienes en devolución':'Devolución de bienes y cese de accesos ordenados');
+}
+</script>
+</body>
+</html>

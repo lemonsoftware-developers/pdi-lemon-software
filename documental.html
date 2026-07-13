@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Firma y gestión documental</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Seguridad y control</div><h1>Firma y gestión documental</h1><p>Firma electrónica avanzada (SEGPRES) · expediente electrónico · ISO 9001</p></div>
+      <div class="mast__act"><button class="btn btn--pri" data-open="m-firma">Firmar documento</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Documentos (mes)</div><div class="stat__v">4.812</div></div>
+        <div class="stat warn"><div class="stat__l">Pendientes de firma</div><div class="stat__v">37</div></div>
+        <div class="stat gold"><div class="stat__l">Firma avanzada</div><div class="stat__v">100<small>%</small></div><div class="stat__x">validez legal</div></div>
+        <div class="stat"><div class="stat__l">Expedientes activos</div><div class="stat__v">1.240</div></div>
+      </div>
+
+      <div class="card"><div class="card__h"><h3>Bandeja de firma</h3></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Documento</th><th>Tipo</th><th>Solicitante</th><th>Clasif.</th><th>Estado</th></tr></thead>
+        <tbody id="firma">
+          <tr><td>Res. Ex. suspensión · Insp. L. Vega</td><td>Resolución</td><td>V. Moraga</td><td><span class="chip chip--sec">Secreto</span></td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+          <tr><td>OC 2.204 · Chalecos balísticos</td><td>Orden de compra</td><td>Abastecimiento</td><td><span class="chip chip--pub">Público</span></td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+          <tr><td>Convenio capacitación ESCIPOL</td><td>Convenio</td><td>Formación</td><td><span class="chip chip--res">Reservado</span></td><td><span class="chip chip--ok">Firmado</span></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="m-firma"><div class="modal"><div class="modal__h"><div><h3>Firma electrónica avanzada</h3><p>Res. Ex. suspensión · Insp. L. Vega</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b"><div class="alert alert--info" style="margin-bottom:var(--s4)"><span>ℹ</span><div>Se firmará con certificado SEGPRES. Documento <b>Secreto</b> — requiere segundo factor.</div></div>
+    <div class="field"><label>Código MFA</label><input placeholder="6 dígitos" inputmode="numeric"></div></div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--pri" data-close onclick="toast('Documento firmado','Firma avanzada SEGPRES aplicada · validez legal · trazado en auditoría')">Firmar</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='documental';window.SIGEP_CRUMBS=['Inicio','Firma y gestión documental'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

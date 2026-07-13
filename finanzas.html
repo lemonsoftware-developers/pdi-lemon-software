@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Contabilidad y tesorería</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Finanzas</div><h1>Contabilidad y tesorería</h1><p>Contabilidad gubernamental · tesorería · conciliación bancaria · homologado SIGFE 2.0</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Libro mayor</button><button class="btn btn--pri">Cierre contable</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Saldo disponible</div><div class="stat__v" style="font-size:30px">M$ 41.350</div></div>
+        <div class="stat"><div class="stat__l">Deudores</div><div class="stat__v" style="font-size:32px">M$ 2.180</div></div>
+        <div class="stat warn"><div class="stat__l">Acreedores por pagar</div><div class="stat__v" style="font-size:32px">M$ 3.940</div></div>
+        <div class="stat gold"><div class="stat__l">Conciliación</div><div class="stat__v">98,1<small>%</small></div></div>
+      </div>
+
+      <div data-tabs class="tabs">
+        <button class="tab on" data-tab="teso">Tesorería</button>
+        <button class="tab" data-tab="conc">Conciliación bancaria</button>
+        <button class="tab" data-tab="cont">Contabilidad</button>
+      </div>
+
+      <div data-panel="teso">
+        <div class="card"><div class="card__h"><h3>Movimientos de tesorería</h3></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Fecha</th><th>Concepto</th><th>Tipo</th><th class="num">Monto (M$)</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td class="mono" style="font-size:12px">29-06</td><td>Pago OC 2.199 · Notebooks periciales</td><td>Egreso</td><td class="num">4.010</td><td><span class="chip chip--ok">Pagado TGR</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">28-06</td><td>Transferencia fondos programa 02</td><td>Ingreso</td><td class="num">12.000</td><td><span class="chip chip--ok">Recibido</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">27-06</td><td>Pago nómina junio (parcial)</td><td>Egreso</td><td class="num">16.200</td><td><span class="chip chip--warn">En proceso</span></td></tr>
+          </tbody>
+        </table></div></div>
+      </div>
+
+      <div data-panel="conc" style="display:none">
+        <div class="card"><div class="card__h"><h3>Conciliación bancaria</h3><span class="sub">Banco Estado · cuenta institucional</span></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Movimiento</th><th class="num">Cartola (M$)</th><th class="num">SIGEP (M$)</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>Pago OC 2.199</td><td class="num">4.010</td><td class="num">4.010</td><td><span class="chip chip--ok">Conciliado</span></td></tr>
+            <tr><td>Egreso nómina parcial</td><td class="num">16.200</td><td class="num">16.200</td><td><span class="chip chip--ok">Conciliado</span></td></tr>
+            <tr><td>Comisión bancaria</td><td class="num">12</td><td class="num">0</td><td><span class="chip chip--warn">Diferencia</span></td></tr>
+          </tbody>
+        </table></div></div>
+      </div>
+
+      <div data-panel="cont" style="display:none">
+        <div class="card"><div class="card__h"><h3>Estado de ejecución contable</h3><span class="sub">plan de cuentas gubernamental</span></div><div class="tw"><table class="tbl">
+          <thead><tr><th>Cuenta</th><th>Descripción</th><th class="num">Devengado (M$)</th><th>SIGFE</th></tr></thead>
+          <tbody>
+            <tr><td class="mono" style="font-size:12px">2152201</td><td>Adquisición de activos no financieros</td><td class="num">19.680</td><td><span class="chip chip--ok">Enviado</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">2152101</td><td>Personal de planta</td><td class="num">42.100</td><td><span class="chip chip--ok">Enviado</span></td></tr>
+            <tr><td class="mono" style="font-size:12px">2152204</td><td>Materiales y útiles</td><td class="num">6.240</td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+          </tbody>
+        </table></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='finanzas';window.SIGEP_CRUMBS=['Inicio','Contabilidad y tesorería'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Glock 17 · GL-17-88421</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <a href="armamento.html" class="btn btn--ghost btn--sm" style="margin-bottom:var(--s4)">← Volver a armamento</a>
+
+      <div class="mast">
+        <div><div class="mast__eye">Armamento · pistola semiautomática</div><h1>Glock 17 Gen5</h1><p>Serie <span class="serie">GL-17-88421</span> · calibre 9×19mm · registro DGMN vigente</p></div>
+        <div class="mast__act"><span id="arma-estado" class="chip chip--danger chip--lg"><span class="dot"></span>Retiro a pañol</span><button id="btn-ext" class="btn btn--danger" data-open="m-extravio" onclick="openModal('m-extravio')">Reportar extravío/robo</button></div>
+      </div>
+
+      <div id="ext-banner"></div>
+
+      <div class="grid g3" style="align-items:start">
+        <div class="card sp2">
+          <div class="card__h"><h3>Cadena de custodia</h3><span class="sub">registro inmutable · trazado en auditoría</span></div>
+          <div class="card__b">
+            <ul class="tl" id="tl-custodia">
+              <li><span class="tl__d danger"></span><div class="tl__w">Hoy 09:14</div><div class="tl__t">Retiro ordenado por suspensión del portador</div><div class="tl__o">automático · Insp. L. Vega suspendido · incidente INC-2026-0451</div></li>
+              <li><span class="tl__d ok"></span><div class="tl__w">28-06-2026 20:05</div><div class="tl__t">Entrega en pañol · inicio de turno</div><div class="tl__o">45 cartuchos · pañolero Sgto. P. Rivas · BICRIM Santiago</div></li>
+              <li><span class="tl__d ok"></span><div class="tl__w">28-06-2026 08:02</div><div class="tl__t">Devolución en pañol · cierre de turno</div><div class="tl__o">conciliación de munición OK (45/45)</div></li>
+              <li><span class="tl__d gold"></span><div class="tl__w">12-03-2024</div><div class="tl__t">Asignación a Insp. Luis Vega</div><div class="tl__o">aptitud psicológica de porte verificada</div></li>
+              <li><span class="tl__d ok"></span><div class="tl__w">02-02-2024</div><div class="tl__t">Inscripción en DGMN</div><div class="tl__o">registro de arma fiscal institucional</div></li>
+              <li><span class="tl__d"></span><div class="tl__w">18-01-2024</div><div class="tl__t">Recepción · adquisición OC N° 1.884</div><div class="tl__o">Mercado Público · lote de 60 unidades</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card"><div class="card__h"><h3>Ficha</h3></div><div class="card__b"><dl class="dl">
+            <dt>Serie</dt><dd class="mono">GL-17-88421</dd>
+            <dt>Modelo</dt><dd>Glock 17 Gen5</dd>
+            <dt>Calibre</dt><dd>9×19mm</dd>
+            <dt>Registro DGMN</dt><dd><span id="dgmn-estado" class="chip chip--ok">Inscrita</span></dd>
+            <dt>Portador</dt><dd><a href="funcionario-detalle.html">Insp. L. Vega</a></dd>
+            <dt>Unidad</dt><dd>BICRIM Santiago</dd>
+            <dt>Munición cargo</dt><dd>45 cartuchos</dd>
+          </dl></div></div>
+          <div class="alert alert--warn"><span>⚠</span><div><b>Acción requerida:</b> el arma debe recepcionarse en pañol tras la orden de retiro. Pendiente de devolución física.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal reportar extravío / robo (caso crítico de trazabilidad) -->
+<div class="scrim" id="m-extravio"><div class="modal"><div class="modal__h"><div><h3>Reportar extravío o robo de arma</h3><p>Glock 17 Gen5 · serie GL-17-88421</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="alert alert--danger" style="margin-bottom:var(--s4)"><span>⚠</span><div>Se dará <b>alerta y baja en el registro DGMN</b>, se abrirá un <b>incidente de control</b> y se registrará el <b>parte</b>. Acción irreversible y trazada en auditoría.</div></div>
+    <form id="f-ext">
+      <div class="field"><label>Causa *</label><select required><option value="">Seleccione…</option><option>Extravío</option><option>Robo</option><option>Uso en servicio (disparo)</option></select><div class="err">Seleccione la causa.</div></div>
+      <div class="field"><label>Fecha y lugar del hecho *</label><input required placeholder="Ej: 29-06-2026, sector Estación Central"><div class="err">Ingrese fecha y lugar.</div></div>
+      <div class="field"><label>N° de parte / denuncia *</label><input required placeholder="Ej: Parte N° 1.204/2026"><div class="err">Ingrese el parte.</div></div>
+    </form>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--danger" onclick="reportarExtravio()">Confirmar y dar de baja</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='armamento';window.SIGEP_CRUMBS=['Inicio','Armamento','GL-17-88421'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+<script>
+function reportarExtravio(){
+  var form=document.getElementById('f-ext');
+  if(!validateForm(form)){return;}
+  var causa=form.querySelector('select').value;
+  closeModal(document.querySelector('#m-extravio .modal__x'));
+  var e=document.getElementById('arma-estado'); e.className='chip chip--danger chip--lg'; e.innerHTML='<span class="dot"></span>Baja · en incidente';
+  var d=document.getElementById('dgmn-estado'); d.className='chip chip--danger'; d.textContent='Baja / alerta';
+  var b=document.getElementById('btn-ext'); b.setAttribute('disabled','');
+  document.getElementById('tl-custodia').insertAdjacentHTML('afterbegin','<li><span class="tl__d danger"></span><div class="tl__w">Hoy '+nowh()+'</div><div class="tl__t">'+causa+' reportado · arma dada de baja</div><div class="tl__o">automático · alerta DGMN + incidente INC-2026-0452 + parte registrado</div></li>');
+  document.getElementById('ext-banner').innerHTML='<div class="alert alert--danger" style="margin:0 0 var(--s5)"><span>✔</span><div><b>'+causa+' registrado — arma dada de baja.</b> Se envió <b>alerta y baja al registro DGMN</b>, se abrió el incidente de control <b>INC-2026-0452</b> y se registró el parte. Todo quedó en el <a href="auditoria.html">registro de auditoría</a>.</div></div>';
+  window.scrollTo({top:0,behavior:'smooth'});
+  toast(causa+' reportado','Baja DGMN + incidente abierto + parte · trazado','danger');
+}
+function nowh(){var d=new Date();return (''+d.getHours()).padStart(2,'0')+':'+(''+d.getMinutes()).padStart(2,'0');}
+</script>
+</body>
+</html>

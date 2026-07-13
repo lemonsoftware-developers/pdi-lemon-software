@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Activos y flota</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística y activos</div><h1>Activos y flota</h1><p>Activo fijo institucional y flota vehicular · asignación, mantención y talleres</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Inventario de activos</button><button class="btn btn--pri">Registrar movimiento</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Activo fijo (bienes)</div><div class="stat__v">42.180</div></div>
+        <div class="stat gold"><div class="stat__l">Vehículos operativos</div><div class="stat__v">1.204</div></div>
+        <div class="stat warn"><div class="stat__l">En mantención</div><div class="stat__v">86</div><div class="stat__x">talleres</div></div>
+        <div class="stat danger"><div class="stat__l">Fuera de servicio</div><div class="stat__v">23</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Flota vehicular</h3><span class="sub">asignación por unidad · plan de mantención</span></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Vehículo</th><th>Patente</th><th>Unidad asignada</th><th>Km</th><th>Próx. mantención</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Toyota Hilux 4x4</strong></td><td><span class="serie">PDXK-42</span></td><td>BICRIM Santiago</td><td class="num">84.200</td><td class="mono" style="font-size:12px">en 1.800 km</td><td><span class="chip chip--ok"><span class="dot"></span>Operativo</span></td></tr>
+            <tr><td><strong>Nissan Navara</strong></td><td><span class="serie">PDXL-19</span></td><td>Antinarcóticos</td><td class="num">112.540</td><td class="mono" style="font-size:12px">vencida</td><td><span class="chip chip--warn"><span class="dot"></span>Mantención</span></td></tr>
+            <tr><td><strong>Furgón pericial Mercedes</strong></td><td><span class="serie">PDXM-07</span></td><td>Lab. Criminalística</td><td class="num">56.100</td><td class="mono" style="font-size:12px">en 4.200 km</td><td><span class="chip chip--ok"><span class="dot"></span>Operativo</span></td></tr>
+            <tr><td><strong>Motocicleta BMW F850</strong></td><td><span class="serie">PDXN-33</span></td><td>Control migratorio</td><td class="num">31.780</td><td class="mono" style="font-size:12px">taller</td><td><span class="chip chip--danger"><span class="dot"></span>Fuera de servicio</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='activos';window.SIGEP_CRUMBS=['Inicio','Activos y flota'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

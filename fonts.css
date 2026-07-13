@@ -1,0 +1,4 @@
+/* Fuentes institucionales PDI: Oswald (títulos) + Open Sans (texto).
+   Para el deploy se cargan desde Google Fonts; en local hay fallback a
+   Arial Narrow / system-sans si no hay red. */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Open+Sans:wght@400;600;700&display=swap');

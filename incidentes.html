@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Incidentes ANCI</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Seguridad y control · Ley 21.663 (OIV)</div><h1>Incidentes de ciberseguridad</h1><p>Gestión y notificación ANCI · plazos legales al CSIRT Nacional</p></div>
+        <div class="mast__act"><button class="btn btn--danger" data-open="m-inc">Reportar incidente</button></div>
+      </div>
+
+      <div class="alert alert--danger" style="margin-bottom:var(--s5)"><span>⚠</span><div><b>ANCI-2026-0187 · crítico</b> — acceso no autorizado al módulo de Remuneraciones. Alerta inicial enviada al CSIRT (plazo 3 h cumplido). <b>Reporte detallado vence en 41 h.</b></div></div>
+
+      <div class="grid g3" style="margin-bottom:var(--s5)">
+        <div class="card"><div class="card__b"><div class="stat__l">Alerta inicial (≤ 3 h)</div><div class="stat__v" style="color:var(--ok-600);font-size:32px">Enviada</div><div class="bar" style="margin-top:var(--s3)"><div class="bar__f ok" style="width:100%"></div></div><p class="muted" style="font-size:12px;margin-top:6px">30-06 08:41 · 2 h 12 m tras detección</p></div></div>
+        <div class="card"><div class="card__b"><div class="stat__l">Reporte detallado (≤ 72 h)</div><div class="stat__v" style="color:var(--warn-600);font-size:32px">41 h</div><div class="bar" style="margin-top:var(--s3)"><div class="bar__f warn" style="width:43%"></div></div><p class="muted" style="font-size:12px;margin-top:6px">restantes · vence 03-07 08:41</p></div></div>
+        <div class="card"><div class="card__b"><div class="stat__l">Reporte final (≤ 30 días)</div><div class="stat__v" style="color:var(--tx-faint);font-size:32px">28 d</div><div class="bar" style="margin-top:var(--s3)"><div class="bar__f" style="width:8%"></div></div><p class="muted" style="font-size:12px;margin-top:6px">delegado: Comisario J. Salas</p></div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Incidentes registrados</h3></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Folio</th><th>Descripción</th><th>Severidad</th><th>Detección</th><th>Estado ANCI</th></tr></thead>
+          <tbody>
+            <tr class="lk" data-href="incidente-detalle.html"><td class="mono" style="font-size:12px">ANCI-2026-0187</td><td>Acceso no autorizado · módulo Remuneraciones</td><td><span class="chip chip--danger">Crítico</span></td><td class="mono" style="font-size:12px">30-06 06:29</td><td><span class="chip chip--warn">Reporte 72 h pendiente</span></td></tr>
+            <tr class="lk" data-href="incidente-detalle.html"><td class="mono" style="font-size:12px">ANCI-2026-0186</td><td>Phishing dirigido a funcionarios de Finanzas</td><td><span class="chip chip--warn">Medio</span></td><td class="mono" style="font-size:12px">27-06 11:04</td><td><span class="chip chip--info">En análisis</span></td></tr>
+            <tr class="lk" data-href="incidente-detalle.html"><td class="mono" style="font-size:12px">ANCI-2026-0179</td><td>Anomalía de tráfico saliente · nodo regional</td><td><span class="chip chip--n">Bajo</span></td><td class="mono" style="font-size:12px">19-06 22:40</td><td><span class="chip chip--ok">Cerrado</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="m-inc"><div class="modal"><div class="modal__h"><div><h3>Reportar incidente de ciberseguridad</h3><p>Inicia el flujo de notificación ANCI</p></div><button class="modal__x" data-close>×</button></div>
+  <div class="modal__b">
+    <div class="field"><label>Descripción *</label><textarea required placeholder="Qué se detectó…"></textarea></div>
+    <div class="field"><label>Severidad</label><select><option>Crítico</option><option>Medio</option><option>Bajo</option></select></div>
+    <div class="alert alert--warn" style="font-size:12px"><span>⚠</span><div>Al confirmar se inicia el conteo del plazo de <b>3 h</b> para la alerta inicial al CSIRT.</div></div>
+  </div>
+  <div class="modal__f"><button class="btn btn--ghost" data-close>Cancelar</button><button class="btn btn--danger" data-close onclick="toast('Incidente registrado','Plazo de 3 h iniciado · notificación al CSIRT en curso','danger')">Registrar y notificar</button></div>
+</div></div>
+
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='incidentes';window.SIGEP_CRUMBS=['Inicio','Incidentes ANCI'];window.SIGEP_CLF='secreto';</script>
+<script src="app.js"></script>
+</body>
+</html>

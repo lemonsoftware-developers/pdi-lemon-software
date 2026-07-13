@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Funcionarios</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div>
+          <div class="mast__eye">Personas</div>
+          <h1>Funcionarios</h1>
+          <p>Dotación institucional · 13.842 activos · datos ficticios</p>
+        </div>
+        <div class="mast__act">
+          <button class="btn btn--ghost">Exportar</button>
+          <button class="btn btn--pri">Registrar funcionario</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:var(--s5)">
+        <div class="card__b" style="display:flex;gap:var(--s3);flex-wrap:wrap;align-items:center">
+          <div class="search" style="max-width:320px;margin:0"><input placeholder="Buscar por nombre, RUT o placa…" aria-label="Buscar funcionario"></div>
+          <select class="btn btn--ghost" style="height:36px" aria-label="Unidad"><option>Todas las unidades</option><option>BICRIM Santiago</option><option>Jef. Nac. Antinarcóticos</option><option>Lab. de Criminalística</option></select>
+          <select class="btn btn--ghost" style="height:36px" aria-label="Situación"><option>Toda situación</option><option>Activo</option><option>Comisión de servicio</option><option>Suspendido</option></select>
+          <span class="muted" style="margin-left:auto;font-size:var(--fs-12)">6 de 13.842</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="tw">
+          <table class="tbl">
+            <thead><tr><th>Funcionario</th><th>Grado</th><th>Unidad</th><th>Situación</th><th>Activos en custodia</th><th>Previsión</th></tr></thead>
+            <tbody>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">LV</div><div class="person__m"><strong>Luis Vega Contreras</strong><span>RUT 15.982.341-2 · Placa 9.821</span></div></div></td>
+                <td>Inspector</td><td>BICRIM Santiago</td>
+                <td><span class="chip chip--danger"><span class="dot"></span>Suspendido</span></td>
+                <td><span class="chip chip--warn">1 pendiente</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">MR</div><div class="person__m"><strong>María Rojas Peña</strong><span>RUT 13.445.902-K · Placa 7.104</span></div></div></td>
+                <td>Subcomisario</td><td>BICRIM Santiago</td>
+                <td><span class="chip chip--ok"><span class="dot"></span>Activo</span></td>
+                <td><span class="chip chip--n">3 al día</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">JT</div><div class="person__m"><strong>Jorge Tapia Núñez</strong><span>RUT 16.220.781-5 · Placa 10.559</span></div></div></td>
+                <td>Inspector</td><td>Jef. Nac. Antinarcóticos</td>
+                <td><span class="chip chip--ok"><span class="dot"></span>Activo</span></td>
+                <td><span class="chip chip--warn">EPP por vencer</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">CF</div><div class="person__m"><strong>Camila Fuentes Díaz</strong><span>RUT 18.902.114-3 · Placa 12.870</span></div></div></td>
+                <td>Detective</td><td>BICRIM Valparaíso</td>
+                <td><span class="chip chip--info"><span class="dot"></span>Comisión de servicio</span></td>
+                <td><span class="chip chip--danger">1 sin devolver</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">RS</div><div class="person__m"><strong>Rodrigo Silva Mora</strong><span>RUT 17.335.669-0 · Placa 11.402</span></div></div></td>
+                <td>Subinspector</td><td>Lab. de Criminalística</td>
+                <td><span class="chip chip--ok"><span class="dot"></span>Activo</span></td>
+                <td><span class="chip chip--n">2 al día</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+              <tr class="lk" data-href="funcionario-detalle.html">
+                <td><div class="person"><div class="person__a">PA</div><div class="person__m"><strong>Paula Araya Godoy</strong><span>RUT 14.778.203-9 · Placa 8.336</span></div></div></td>
+                <td>Comisario</td><td>Plana Mayor · JENATID</td>
+                <td><span class="chip chip--ok"><span class="dot"></span>Activo</span></td>
+                <td><span class="chip chip--n">2 al día</span></td><td class="mono" style="font-size:12px">DIPRECA</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='funcionarios';window.SIGEP_CRUMBS=['Inicio','Funcionarios'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

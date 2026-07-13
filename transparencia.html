@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Transparencia Activa</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Interoperabilidad · Ley 20.285</div><h1>Transparencia Activa</h1><p>Publicación obligatoria mensual · compras, dotación y remuneraciones</p></div>
+      <div class="mast__act"><button class="btn btn--pri" onclick="toast('Publicación enviada','Portal de Transparencia · período junio 2026')">Publicar período</button></div></div>
+
+      <div class="alert alert--warn" style="margin-bottom:var(--s5)"><span>⚠</span><div>El período <b>junio 2026</b> vence su publicación en <b>6 días</b>. 2 conjuntos de datos pendientes de aprobación.</div></div>
+
+      <div class="card"><div class="card__h"><h3>Conjuntos de datos a publicar</h3></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Conjunto</th><th>Fuente</th><th class="num">Registros</th><th>Última publicación</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Órdenes de compra y contratos</strong></td><td>Mercado Público</td><td class="num">184</td><td class="mono" style="font-size:12px">may 2026</td><td><span class="chip chip--ok">Listo</span></td></tr>
+          <tr><td><strong>Dotación y planta</strong></td><td>SIAPER / Personas</td><td class="num">13.842</td><td class="mono" style="font-size:12px">may 2026</td><td><span class="chip chip--warn">Por aprobar</span></td></tr>
+          <tr><td><strong>Remuneraciones por estamento</strong></td><td>Remuneraciones</td><td class="num">6</td><td class="mono" style="font-size:12px">may 2026</td><td><span class="chip chip--warn">Por aprobar</span></td></tr>
+          <tr><td><strong>Actos y resoluciones</strong></td><td>Documental</td><td class="num">312</td><td class="mono" style="font-size:12px">may 2026</td><td><span class="chip chip--ok">Listo</span></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='transparencia';window.SIGEP_CRUMBS=['Inicio','Transparencia Activa'];window.SIGEP_CLF='publico';</script>
+<script src="app.js"></script>
+</body>
+</html>

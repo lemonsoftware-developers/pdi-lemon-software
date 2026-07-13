@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Presupuesto y ejecución</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Finanzas</div><h1>Presupuesto y ejecución</h1><p>Contabilidad gubernamental · homologado a SIGFE 2.0 · ejercicio 2026</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Enviar a SIGFE</button><button class="btn btn--pri">Reporte DIPRES</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Presupuesto vigente</div><div class="stat__v" style="font-size:34px">M$ 150.500</div></div>
+        <div class="stat gold"><div class="stat__l">Ejecutado</div><div class="stat__v" style="font-size:34px">M$ 87.840</div><div class="stat__d up">58,3%</div></div>
+        <div class="stat"><div class="stat__l">Comprometido</div><div class="stat__v" style="font-size:34px">M$ 21.310</div><div class="stat__x">14,2%</div></div>
+        <div class="stat warn"><div class="stat__l">Disponible</div><div class="stat__v" style="font-size:34px">M$ 41.350</div><div class="stat__x">27,5%</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Ejecución por programa presupuestario</h3><span class="sub">clasificador DIPRES</span></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Programa</th><th class="num">Vigente (M$)</th><th class="num">Ejecutado (M$)</th><th>Avance</th><th>Estado SIGFE</th></tr></thead>
+          <tbody>
+            <tr><td><strong>01 · Investigación criminalística</strong></td><td class="num">68.500</td><td class="num">42.180</td><td><div class="bar" style="width:120px"><div class="bar__f" style="width:61%"></div></div></td><td><span class="chip chip--ok">Enviado</span></td></tr>
+            <tr><td><strong>02 · Control migratorio y fronteras</strong></td><td class="num">41.300</td><td class="num">28.940</td><td><div class="bar" style="width:120px"><div class="bar__f" style="width:70%"></div></div></td><td><span class="chip chip--ok">Enviado</span></td></tr>
+            <tr><td><strong>03 · Formación y Escuela (ESCIPOL)</strong></td><td class="num">22.700</td><td class="num">9.120</td><td><div class="bar" style="width:120px"><div class="bar__f warn" style="width:40%"></div></div></td><td><span class="chip chip--warn">Pendiente</span></td></tr>
+            <tr><td><strong>04 · Modernización tecnológica</strong></td><td class="num">18.000</td><td class="num">15.600</td><td><div class="bar" style="width:120px"><div class="bar__f danger" style="width:87%"></div></div></td><td><span class="chip chip--ok">Enviado</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='presupuesto';window.SIGEP_CRUMBS=['Inicio','Presupuesto y ejecución'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

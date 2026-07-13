@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Accesos y roles</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Seguridad y control</div><h1>Accesos y roles</h1><p>Gestión de identidades · roles · segregación de funciones · need-to-know por unidad</p></div>
+      <div class="mast__act"><button class="btn btn--pri">Crear rol</button></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Identidades activas</div><div class="stat__v">13.842</div><div class="stat__x">ClaveÚnica + MFA</div></div>
+        <div class="stat"><div class="stat__l">Roles definidos</div><div class="stat__v">42</div></div>
+        <div class="stat warn"><div class="stat__l">Conflictos SoD</div><div class="stat__v">3</div><div class="stat__x">segregación de funciones</div></div>
+        <div class="stat danger"><div class="stat__l">Accesos revocados (mes)</div><div class="stat__v">28</div></div>
+      </div>
+
+      <div class="alert alert--warn" style="margin-bottom:var(--s5)"><span>⚠</span><div><b>3 conflictos de segregación de funciones (SoD):</b> un mismo rol combina "crear OC" y "aprobar pago". Requiere revisión.</div></div>
+
+      <div class="alert alert--info" style="margin-bottom:var(--s5)"><span>ℹ</span><div>Tratamiento de datos personales conforme a la <b>Ley 21.719</b> — acceso por finalidad y need-to-know, con registro de consultas en auditoría (supervisión de la Agencia de Protección de Datos).</div></div>
+
+      <div class="card"><div class="card__h"><h3>Roles y niveles de acceso</h3><span class="sub">compartimentación por unidad</span></div><div class="tw"><table class="tbl">
+        <thead><tr><th>Rol</th><th>Módulos</th><th>Clasificación máx.</th><th class="num">Usuarios</th><th>SoD</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Dirección / JENATID</strong></td><td>Todos (lectura)</td><td><span class="chip chip--sec">Secreto</span></td><td class="num">18</td><td><span class="chip chip--ok">OK</span></td></tr>
+          <tr><td><strong>Encargado de pañol</strong></td><td>Armamento, Pañol</td><td><span class="chip chip--res">Reservado</span></td><td class="num">240</td><td><span class="chip chip--ok">OK</span></td></tr>
+          <tr><td><strong>Abastecimiento</strong></td><td>Compras, Bodegas</td><td><span class="chip chip--res">Reservado</span></td><td class="num">180</td><td><span class="chip chip--danger">Conflicto</span></td></tr>
+          <tr><td><strong>RR.HH.</strong></td><td>Personas, Remuneraciones</td><td><span class="chip chip--res">Reservado</span></td><td class="num">320</td><td><span class="chip chip--ok">OK</span></td></tr>
+          <tr><td><strong>Oficial de ciberseguridad</strong></td><td>Incidentes, Auditoría</td><td><span class="chip chip--sec">Secreto</span></td><td class="num">24</td><td><span class="chip chip--ok">OK</span></td></tr>
+        </tbody>
+      </table></div></div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='accesos';window.SIGEP_CRUMBS=['Inicio','Accesos y roles'];window.SIGEP_CLF='secreto';</script>
+<script src="app.js"></script>
+</body>
+</html>

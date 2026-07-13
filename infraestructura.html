@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Nube y continuidad</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+      <div class="mast"><div><div class="mast__eye">Plataforma · OIV Ley 21.663</div><h1>Nube soberana y continuidad</h1><p>Datos en Chile · llaves propias · alta disponibilidad y recuperación ante desastres</p></div></div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat gold"><div class="stat__l">Disponibilidad (SLA)</div><div class="stat__v">99,95<small>%</small></div><div class="stat__x">últimos 90 días</div></div>
+        <div class="stat"><div class="stat__l">RTO objetivo</div><div class="stat__v">2 <small>h</small></div></div>
+        <div class="stat"><div class="stat__l">RPO objetivo</div><div class="stat__v">15 <small>min</small></div></div>
+        <div class="stat"><div class="stat__l">Último respaldo</div><div class="stat__v" style="font-size:28px">08:00</div></div>
+      </div>
+
+      <div class="grid g2" style="align-items:start">
+        <div class="card"><div class="card__h"><h3>Soberanía de datos</h3><span class="sub">2026: soberanía ≠ solo residencia</span></div><div class="card__b"><dl class="dl">
+          <dt>Región</dt><dd>Chile continental (Santiago) · Tier 3+</dd>
+          <dt>Aplicación y BD</dt><dd><span class="chip chip--ok">100% en Chile</span></dd>
+          <dt>Llaves de cifrado</dt><dd>BYOK / HSM gestionadas por la PDI</dd>
+          <dt>Acceso técnico</dt><dd>auditado · aprobación institucional</dd>
+          <dt>Jurisdicción</dt><dd>legislación chilena</dd>
+          <dt>Cifrado</dt><dd>tránsito · reposo · base de datos</dd>
+          <dt>Certificación</dt><dd><span class="chip chip--ok">ISO/IEC 27001</span> · SOC 2</dd>
+        </dl></div></div>
+        <div class="card"><div class="card__h"><h3>Continuidad y recuperación</h3></div><div class="card__b"><div class="stack" style="gap:var(--s3)">
+          <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Sitio principal · Santiago</strong><span class="muted mono" style="font-size:12px">activo</span></div>
+          <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Sitio de contingencia · Valparaíso</strong><span class="muted mono" style="font-size:12px">réplica</span></div>
+          <div class="row"><span class="chip chip--ok"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Respaldo cifrado diario</strong><span class="muted mono" style="font-size:12px">retención 7 años</span></div>
+          <div class="row"><span class="chip chip--warn"><span class="dot"></span></span><strong style="flex:1;font-weight:var(--fw-m)">Simulacro DR (último)</strong><span class="muted mono" style="font-size:12px">hace 45 días</span></div>
+          <div class="hr"></div>
+          <div class="alert alert--ok" style="font-size:12px"><span>✔</span><div>Playbook de ciberincidente (ransomware) probado. Aislamiento y restauración desde respaldo inmutable.</div></div>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='infra';window.SIGEP_CRUMBS=['Inicio','Nube y continuidad'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>

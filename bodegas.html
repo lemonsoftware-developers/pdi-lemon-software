@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGEP · Bodegas e inventario</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="clfbar" id="clfbar"></div>
+<div class="layout">
+  <aside class="nav" id="nav"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="content">
+
+      <div class="mast">
+        <div><div class="mast__eye">Logística y activos</div><h1>Bodegas e inventario</h1><p>Existencias multi-sede · control de stock y consumos por unidad</p></div>
+        <div class="mast__act"><button class="btn btn--ghost">Movimientos</button><button class="btn btn--pri">Registrar ingreso</button></div>
+      </div>
+
+      <div class="grid g4" style="margin-bottom:var(--s5)">
+        <div class="stat"><div class="stat__l">Bodegas</div><div class="stat__v">18</div><div class="stat__x">cobertura nacional</div></div>
+        <div class="stat gold"><div class="stat__l">SKU en stock</div><div class="stat__v">6.740</div></div>
+        <div class="stat warn"><div class="stat__l">Bajo mínimo</div><div class="stat__v">54</div></div>
+        <div class="stat danger"><div class="stat__l">Sin stock</div><div class="stat__v">11</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card__h"><h3>Existencias críticas</h3></div>
+        <div class="tw"><table class="tbl">
+          <thead><tr><th>Ítem</th><th>Bodega</th><th class="num">Stock</th><th class="num">Mínimo</th><th>Nivel</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Munición 9mm</strong></td><td>Central Santiago</td><td class="num">18.400</td><td class="num">20.000</td><td><div class="bar" style="width:120px"><div class="bar__f warn" style="width:70%"></div></div></td><td><span class="chip chip--warn"><span class="dot"></span>Bajo mínimo</span></td></tr>
+            <tr><td><strong>Reactivos criminalística</strong></td><td>Lab. Central</td><td class="num">0</td><td class="num">50</td><td><div class="bar" style="width:120px"><div class="bar__f danger" style="width:2%"></div></div></td><td><span class="chip chip--danger"><span class="dot"></span>Sin stock</span></td></tr>
+            <tr><td><strong>Chalecos balísticos NIJ IIIA</strong></td><td>Pañol BICRIM</td><td class="num">42</td><td class="num">30</td><td><div class="bar" style="width:120px"><div class="bar__f ok" style="width:100%"></div></div></td><td><span class="chip chip--ok"><span class="dot"></span>Suficiente</span></td></tr>
+            <tr><td><strong>Kits de terreno</strong></td><td>Valparaíso</td><td class="num">12</td><td class="num">25</td><td><div class="bar" style="width:120px"><div class="bar__f warn" style="width:48%"></div></div></td><td><span class="chip chip--warn"><span class="dot"></span>Bajo mínimo</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toasts" id="toasts"></div>
+<script>window.SIGEP_PAGE='bodegas';window.SIGEP_CRUMBS=['Inicio','Bodegas e inventario'];window.SIGEP_CLF='reservado';</script>
+<script src="app.js"></script>
+</body>
+</html>
