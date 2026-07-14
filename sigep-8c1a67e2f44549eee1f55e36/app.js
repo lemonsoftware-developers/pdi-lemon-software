@@ -123,6 +123,8 @@
         return '<span>' + c + '</span>';
       }).join('<i>/</i>');
       top.innerHTML =
+        '<button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">' +
+          '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>' +
         '<div class="crumbs">' + cr + '</div>' +
         '<div class="search">' + ico('search') + '<input placeholder="Buscar funcionario, arma, serie, OC…" aria-label="Buscar"></div>' +
         '<div class="top__r">' +
@@ -206,7 +208,47 @@
     if (window.SIGEPTour || document.getElementById('sigep-tour-js')) return;
     var s=document.createElement('script'); s.src='tour.js'; s.id='sigep-tour-js'; document.body.appendChild(s);
   }
-  function init(){ renderShell(); enhanceRows(); loadTour(); }
+  /* Asocia cada <label> con su control dentro de .field (a11y + testeabilidad) */
+  function linkFields(){
+    var n = 0;
+    document.querySelectorAll('.field').forEach(function (f) {
+      var lab = f.querySelector('label');
+      var ctl = f.querySelector('input, select, textarea');
+      if (!lab || !ctl || lab.getAttribute('for')) return;
+      if (!ctl.id) ctl.id = 'fld-' + (++n) + '-' + Math.random().toString(36).slice(2, 7);
+      lab.setAttribute('for', ctl.id);
+    });
+  }
+
+  /* Etiqueta cada celda con su encabezado → permite tarjetas en mobile (CSS) */
+  function enhanceTables(){
+    document.querySelectorAll('table.tbl').forEach(function (t) {
+      var ths = t.querySelectorAll('thead th');
+      if (!ths.length) return;
+      var labels = [].map.call(ths, function (th) { return th.textContent.trim(); });
+      t.querySelectorAll('tbody tr').forEach(function (tr) {
+        [].forEach.call(tr.children, function (td, i) {
+          if (labels[i] && !td.hasAttribute('data-label')) td.setAttribute('data-label', labels[i]);
+        });
+      });
+    });
+  }
+
+  /* Sidebar como drawer off-canvas en mobile (hamburguesa + scrim) */
+  function initNav(){
+    var scrim = document.getElementById('nav-scrim');
+    if (!scrim) { scrim = document.createElement('div'); scrim.className = 'nav-scrim'; scrim.id = 'nav-scrim'; document.body.appendChild(scrim); }
+    var tg = document.getElementById('nav-toggle');
+    function close(){ document.body.classList.remove('nav-open'); if (tg) tg.setAttribute('aria-expanded', 'false'); }
+    function toggle(){ var open = document.body.classList.toggle('nav-open'); if (tg) tg.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+    if (tg) tg.addEventListener('click', toggle);
+    scrim.addEventListener('click', close);
+    var nav = document.getElementById('nav');
+    if (nav) nav.addEventListener('click', function (e) { if (e.target.closest('a')) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  }
+
+  function init(){ renderShell(); enhanceRows(); enhanceTables(); linkFields(); initNav(); loadTour(); }
   document.addEventListener('DOMContentLoaded', init);
   if (document.readyState !== 'loading') init();
 })();

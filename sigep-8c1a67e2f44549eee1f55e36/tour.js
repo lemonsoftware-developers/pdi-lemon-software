@@ -80,8 +80,12 @@
         '</div>'+
       '</div>';
     document.body.appendChild(w);
-    w.querySelector('#tw-start').onclick = function(){ w.remove(); start(); };
-    w.querySelector('#tw-skip').onclick = function(){ w.remove(); seen(); };
+    function dismiss(){ document.removeEventListener('keydown', onEsc, true); w.remove(); seen(); }
+    function onEsc(e){ if(e.key==='Escape'){ e.preventDefault(); dismiss(); } }
+    document.addEventListener('keydown', onEsc, true);
+    w.addEventListener('click', function(e){ if(e.target === w) dismiss(); });   // tap en el fondo cierra
+    w.querySelector('#tw-start').addEventListener('click', function(){ document.removeEventListener('keydown', onEsc, true); w.remove(); start(); });
+    w.querySelector('#tw-skip').addEventListener('click', dismiss);
   }
 
   function next(){ if(i<STEPS.length-1){i++;render();} else end(); }
